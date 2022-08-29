@@ -22,11 +22,6 @@ const index = () => {
                     <Route path="/signUp" element={<SignUp />} />
                 </Routes>
             </div>
-            <div className="col d-flex flex-column justify-content-center align-items-center">
-                <img src="/images/ppf-logo.png" width="200" />
-                <h3>PAID PROMOTE FINDER</h3>
-                <span>Find event or sponsor the best for you</span>
-            </div>
         </div>
     );
 };
