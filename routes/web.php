@@ -24,7 +24,7 @@ Route::prefix('surat-kerja-sama')->group(function () {
         return view('welcome');
     });
 
-    Route::get('/{nomor_surat}', function () {
+    Route::get('/{id}', function () {
         return view('welcome');
     });
 

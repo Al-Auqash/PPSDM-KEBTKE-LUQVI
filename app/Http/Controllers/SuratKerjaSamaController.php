@@ -14,10 +14,22 @@ class SuratKerjaSamaController extends Controller
 
         return $surat_kerja_sama->toJson();
     }
+
     public function tipeSurat()
     {
         $tipe_surat = TipeSurat::select('*')->paginate(10);
 
         return $tipe_surat->toJson();
+    }
+
+    public function getSuratKerjaSama(Request $request)
+    {
+        $id = $request->id;
+
+        $id = SuratKerjaSama::select('*')
+            ->where('id_tipe_surat', '=', $id)
+            ->get();
+
+        return $id->toJson();
     }
 }

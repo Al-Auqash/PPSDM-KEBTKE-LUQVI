@@ -17,7 +17,7 @@ const index = () => {
             <Navbar/>
             <Routes>
                 <Route path="" element={<Home/>}/>
-                <Route path="surat-kerja-sama" element={<SuratKerjaSama/>}/>
+                <Route path="surat-kerja-sama/:id" element={<SuratKerjaSama/>}/>
                 <Route path="surat-kerja-sama/tambah" element={<TambahSuratKerjaSama/>}/>
             </Routes>
 

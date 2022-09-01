@@ -14,16 +14,18 @@ const suratKerjaSama = () => {
 
     const getAllSKS = async () => {
         await axios
-            .get("/api/surat-kerja-sama")
+            // .get("/api/surat-kerja-sama")
+            .get("/api/surat-kerja-sama", {
+                params: {id: params.id},
+            })
             .then((response) => {
-                setDataSKS(response.data.data);
+                setDataSKS(response.data);
             })
             .catch((error) => {
                 console.log(error);
                 console.log("error")
             });
     };
-                console.log(dataSKS);
 
     useEffect(() => {
         getAllSKS();

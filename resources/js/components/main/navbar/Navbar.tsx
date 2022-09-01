@@ -78,8 +78,8 @@ const Navbar = () => {
                             </a>
                             <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                                 {tipeSurat.map((tipeSurat) => (
-                                    <li>
-                                        <a className="dropdown-item" href="#">{tipeSurat.nama_tipe_surat}</a>
+                                    <li key={tipeSurat.id}>
+                                        <a className="dropdown-item" href={`/surat-kerja-sama/${tipeSurat.id}`}>{tipeSurat.nama_tipe_surat}</a>
                                     </li>
                                 ))}
                                 <li><a className="dropdown-item" href="/surat-kerja-sama/tambah">Tambah Dokumen</a></li>
