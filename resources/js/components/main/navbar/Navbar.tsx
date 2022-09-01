@@ -1,4 +1,5 @@
 import axios from "axios";
+import {useEffect, useState} from "react";
 // import React, { useEffect, useState } from "react";
 
 const Navbar = () => {
@@ -19,6 +20,25 @@ const Navbar = () => {
     // };
     //
     // const [user, setUser] = useState([]);
+    const [tipeSurat, setTipeSurat] = useState([]);
+
+    const getTipeSKS = async () => {
+        await axios
+            .get("/api/tipe-surat")
+            .then((response) => {
+                setTipeSurat(response.data.data);
+            })
+            .catch((error) => {
+                console.log(error);
+                console.log("error")
+            });
+    };
+
+    useEffect(() => {
+            getTipeSKS();
+        },
+        []
+    )
 
     return (
         <nav className="navbar sticky-top navbar-expand-md navbar-dark bg-secondary w-100">
@@ -57,7 +77,11 @@ const Navbar = () => {
                                 Surat Kerja Sama
                             </a>
                             <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a className="dropdown-item" href="#">Action</a></li>
+                                {tipeSurat.map((tipeSurat) => (
+                                    <li>
+                                        <a className="dropdown-item" href="#">{tipeSurat.nama_tipe_surat}</a>
+                                    </li>
+                                ))}
                                 <li><a className="dropdown-item" href="/surat-kerja-sama/tambah">Tambah Dokumen</a></li>
                             </ul>
                         </li>

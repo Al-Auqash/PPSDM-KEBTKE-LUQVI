@@ -1,50 +1,38 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
 import axios from "axios";
 import DataTable from 'react-data-table-component';
 
 import {columns} from "./dataTables";
-import DataSuratKerjaSama from "./dataSuratKerjaSama";
+import CardContent from "./CardContent";
 
 const suratKerjaSama = () => {
 
     const params = useParams();
 
-    const [dataSKS, setDataSKS] = useState([]);
-
-    const getResult = async () => {
-        await axios
-            .get("/api/surat-kerja-sama", {params: {id: params.id}})
-            .then((response: any) => {
-                setDataSKS(response.data);
-            })
-            .catch((error: any) => {
-                console.log(error);
-            });
-    };
+    const [dataSKS, setDataSKS] = useState<string[]>([]);
 
     const getAllSKS = async () => {
         await axios
             .get("/api/surat-kerja-sama")
-            .then((response: any) => {
-                setDataSKS(response.data);
+            .then((response) => {
+                setDataSKS(response.data.data);
             })
-            .catch((error: any) => {
+            .catch((error) => {
                 console.log(error);
+                console.log("error")
             });
     };
+                console.log(dataSKS);
+
+    useEffect(() => {
+        getAllSKS();
+    }, [])
 
     return (
-        <div className="container">
-            <div className="display-flex-col justify-content-center align-items-center w-100 h-100 p-4">
-                <div className="card p-2 w-100">
-                    <DataTable
-                        columns={columns}
-                        data={DataSuratKerjaSama(dataSKS)}
-                    />
-                </div>
-            </div>
-        </div>
-    )
-}
+        <CardContent title="Surat Kerja Sama"
+                     content={<DataTable columns={columns}
+                                         data={dataSKS}/>}/>
+    );
+};
 export default suratKerjaSama

@@ -17,12 +17,32 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/surat-kerja-sama', function () {
-    return view('welcome');
-});
 
-Route::get('/surat-kerja-sama/tambah', function () {
-    return view('welcome');
+
+Route::prefix('surat-kerja-sama')->group(function () {
+    Route::get('', function () {
+        return view('welcome');
+    });
+
+    Route::get('/{nomor_surat}', function () {
+        return view('welcome');
+    });
+
+    Route::get('/detail/{id}', function () {
+        return view('welcome');
+    });
+
+    Route::get('/edit/{id}', function () {
+        return view('welcome');
+    });
+
+    Route::get('/delete/{id}', function () {
+        return view('welcome');
+    });
+
+    Route::get('/tambah', function () {
+        return view('welcome');
+    });
 });
 
 Route::prefix('authentication')->group(function () {
