@@ -17,11 +17,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/surat-kerja-sama', function () {
+    return view('welcome');
+});
+
+Route::get('/surat-kerja-sama/tambah', function () {
+    return view('welcome');
+});
+
 Route::prefix('authentication')->group(function () {
     Route::get('/signIn', function () {
-        return view('welcome');
-    });
-    Route::get('/signUp', function () {
         return view('welcome');
     });
 });

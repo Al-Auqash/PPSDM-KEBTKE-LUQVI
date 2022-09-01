@@ -11,18 +11,7 @@ const signIn = () => {
     const [password, setPassword] = useState("");
     const [notification, setNotification] = useState([]);
 
-    //define state validation
-    // const [validation, setValidation] = useState([]);
-
-    //define history
     const navigate = useNavigate();
-
-    // const handleFieldChange = (e) => {
-    //     setInput((inputField) => ({
-    //         ...inputField,
-    //         [e.target.name]: e.target.value,
-    //     }));
-    // };
 
     const signIn = async (event: any) => {
         event.preventDefault();
@@ -61,51 +50,53 @@ const signIn = () => {
                         onSubmit={signIn}
                     >
                         {notification && <div>{notification}</div>}
-                        <div className="form-group py-2">
-                            <label className="form-check-label">Email</label>
-                            <input
-                                className="form-control"
-                                type="text"
-                                name="email"
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                                id="email"
-                            />
+                        <div className="form-group">
+                            <div className="input-group my-3">
+                                <span className="input-group-text bg-warning p-3" id="basic-addon1">
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        className="bi bi-person-fill" viewBox="0 0 16 16">
+                                        <path
+                                            d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                                    </svg>
+                                </span>
+                                <input
+                                    className="form-control"
+                                    type="text"
+                                    name="email"
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                    id="email"
+                                    placeholder="username"
+                                />
+                            </div>
                         </div>
-                        {/* {validation.email && (
-                    <div className="alert alert-danger">
-                        {validation.email[0]}
-                    </div>
-                )} */}
-                        <div className="form-group py-2">
-                            <label className="form-check-label">Password</label>
-                            <input
-                                className="form-control"
-                                type="password"
-                                name="password"
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                                id="password"
-                                autoComplete="false"
-                            />
-                        </div>
-                        {/* {validation.password && (
-                    <div className="alert alert-danger">
-                        {validation.password[0]}
-                    </div>
-                )} */}
-                        <div className="form-group py-2">
-                            <a className="text-dark-orange link-form fs-6">
-                                forgot password?
-                            </a>
+
+                        <div className="form-group">
+                            <div className="input-group my-3">
+                                <span className="input-group-text bg-warning p-3" id="basic-addon1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                         className="bi bi-lock-fill" viewBox="0 0 16 16">
+                                    <path
+                                        d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/>
+                                    </svg>
+                                </span>
+                                <input
+                                    className="form-control"
+                                    type="password"
+                                    name="password"
+                                    value={password}
+                                    onChange={(e) => setPassword(e.target.value)}
+                                    id="password"
+                                    autoComplete="false"
+                                    placeholder="password"
+                                />
+                            </div>
                         </div>
                         <div className="form-group py-2">
-                            <button className="form-control btn btn-warning fs-5 py-3">
+                            <button className="form-control btn btn-warning text-white font-weight-bold fs-5 py-3">
                                 SIGN IN
                             </button>
-                        </div>
-                        <div className="form-group py-2 text-center">
-                            <p className="text-dark-orange p-0 m-0">or</p>
                         </div>
                     </form>
                 </div>
