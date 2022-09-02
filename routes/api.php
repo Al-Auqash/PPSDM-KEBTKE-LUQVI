@@ -23,4 +23,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 //Route::get('/surat-kerja-sama/', [SuratKerjaSamaController::class, 'index']);
 Route::get('/surat-kerja-sama', [SuratKerjaSamaController::class, 'getSuratKerjaSama']);
+Route::get('/daftar-mitra', [SuratKerjaSamaController::class, 'index']);
 Route::get('/tipe-surat/', [SuratKerjaSamaController::class, 'tipeSurat']);

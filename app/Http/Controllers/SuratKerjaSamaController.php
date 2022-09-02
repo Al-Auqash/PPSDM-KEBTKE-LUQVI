@@ -32,4 +32,17 @@ class SuratKerjaSamaController extends Controller
 
         return $id->toJson();
     }
+
+    public function getDaftarMitra(Request $request)
+    {
+        $keyword = $request->keyword;
+        $region_id = $request->region_id;
+
+        $daftar = SuratKerjaSama::select('*')
+            ->where('nama_mitra', 'LIKE', '%' . $keyword . '%')
+            ->where('region_id', 'LIKE', '%' . $region_id . '%')
+            ->get();
+
+        return $daftar->toJson();
+    }
 }

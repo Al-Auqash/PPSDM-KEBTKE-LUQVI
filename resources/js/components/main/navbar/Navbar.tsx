@@ -91,8 +91,8 @@ const Navbar = () => {
                                 Detail Surat
                             </a>
                             <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a className="dropdown-item" href="#">Daftar Mitra</a></li>
-                                <li><a className="dropdown-item" href="#">Informasi Transaksi</a></li>
+                                <li><a className="dropdown-item" href="/daftar-mitra">Daftar Mitra</a></li>
+                                <li><a className="dropdown-item" href="/informasi-transaksi">Informasi Transaksi</a></li>
                             </ul>
                         </li>
                         <li className="nav-item dropdown">

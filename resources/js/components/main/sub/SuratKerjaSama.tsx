@@ -3,7 +3,7 @@ import {useParams} from "react-router-dom";
 import axios from "axios";
 import DataTable from 'react-data-table-component';
 
-import {columns} from "./dataTables";
+import {columns} from "./ColumnSuratKerjaSama";
 import CardContent from "./CardContent";
 
 const suratKerjaSama = () => {

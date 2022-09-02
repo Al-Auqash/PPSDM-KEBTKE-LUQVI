@@ -17,7 +17,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
+Route::get('/daftar-mitra', function(){
+    return view('welcome');
+});
 
 Route::prefix('surat-kerja-sama')->group(function () {
     Route::get('', function () {
