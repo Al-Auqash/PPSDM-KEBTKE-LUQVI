@@ -41,8 +41,8 @@ const signIn = () => {
     };
 
     return (
-        <div className="container">
-            <div className="card">
+        <div className="container d-flex justify-content-center align-items-center">
+            <div className="card w-50">
                 <div className="card-body">
                     <form
                         method="post"
@@ -61,7 +61,7 @@ const signIn = () => {
                                     </svg>
                                 </span>
                                 <input
-                                    className="form-control"
+                                    className="form-control bg-dark text-white"
                                     type="text"
                                     name="email"
                                     value={email}
@@ -82,7 +82,7 @@ const signIn = () => {
                                     </svg>
                                 </span>
                                 <input
-                                    className="form-control"
+                                    className="form-control bg-dark text-white"
                                     type="password"
                                     name="password"
                                     value={password}
