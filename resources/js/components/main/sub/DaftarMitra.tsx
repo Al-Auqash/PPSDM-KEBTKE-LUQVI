@@ -36,12 +36,12 @@ const daftarMitra = () => {
             });
     };
 
-    const getSearch = async (e) => {
+    const getSearch = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
         const params = {
-            keyword: search.keyword,
-            region_id: search.region_id,
+            keyword: search?.keyword,
+            region_id: search?.region_id,
         };
 
         await axios

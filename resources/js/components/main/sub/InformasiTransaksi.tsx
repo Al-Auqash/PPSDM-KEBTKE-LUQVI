@@ -3,7 +3,6 @@ import DataTable from 'react-data-table-component';
 import CardContent from "./CardContent";
 import {columns} from "./ColumnInformasiTransaksi";
 import axios from "axios";
-import DataInformasiTransaksi from "./DataInformasiTransaksi";
 
 const informasiTransaksi = () => {
 
