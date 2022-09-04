@@ -8,6 +8,8 @@
 
         <!-- Fonts -->
         <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+        <link href="http://fonts.cdnfonts.com/css/segoe-ui-4" rel="stylesheet">
+
 
         <!-- Styles -->
         <style>
@@ -16,7 +18,9 @@
 
         <style>
             body {
-                font-family: 'Nunito', sans-serif;
+                /*font-family: 'Nunito', sans-serif;*/
+                font-family: 'Segoe UI', sans-serif;
+
             }
         </style>
         <!-- Styles -->

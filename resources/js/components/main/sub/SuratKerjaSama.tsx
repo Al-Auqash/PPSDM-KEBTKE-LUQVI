@@ -8,9 +8,16 @@ import CardContent from "./CardContent";
 
 const suratKerjaSama = () => {
 
+    interface MyArr {
+        id: number,
+        nomor_surat: string,
+        nama_mitra: string,
+        judul_ks: string,
+    }
+
     const params = useParams();
 
-    const [dataSKS, setDataSKS] = useState<string[]>([]);
+    const [dataSKS, setDataSKS] = useState<MyArr[]>([]);
 
     const getAllSKS = async () => {
         await axios
@@ -27,6 +34,7 @@ const suratKerjaSama = () => {
             });
     };
 
+    console.log(dataSKS)
     useEffect(() => {
         getAllSKS();
     }, [])

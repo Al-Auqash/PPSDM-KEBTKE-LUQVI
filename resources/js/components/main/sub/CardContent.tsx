@@ -5,7 +5,7 @@ const cardContent = (props: { title: string | number | boolean | React.ReactElem
         <div className="container">
             <div className="display-flex-col justify-content-center align-items-center w-100 h-100 p-4">
                 <div className="card p-2 w-100">
-                    <h2 className="card-title">{props.title}</h2>
+                    <h2 className="p-4 card-title font-weight-bold">{props.title}</h2>
                     <h4 className="card-body">
                         {props.content}
                     </h4>

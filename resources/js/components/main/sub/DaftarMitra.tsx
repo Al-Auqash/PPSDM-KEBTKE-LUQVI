@@ -7,13 +7,21 @@ import CardContent from "./CardContent";
 
 const daftarMitra = () => {
 
-    const [daftarMitra, setDaftarMitra] = useState<string[]>([]);
-    const [search, setSearch] = useState([
-        {
-            keyword: "",
-            region_id: "",
-        },
-    ]);
+    interface SearchInterface {
+        keyword: string,
+        region_id: string,
+    }
+
+    interface DaftarMitraInterface {
+        id: number,
+        nama_mitra: string,
+        alamat: string,
+        koordinator: string,
+        kontak: string
+    }
+
+    const [daftarMitra, setDaftarMitra] = useState<DaftarMitraInterface[]>([]);
+    const [search, setSearch] = useState<SearchInterface>();
 
     const getDaftarMitra = async () => {
         await axios

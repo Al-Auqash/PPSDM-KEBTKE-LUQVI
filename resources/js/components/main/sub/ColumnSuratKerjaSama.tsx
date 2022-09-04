@@ -1,22 +1,22 @@
 export const columns = [
     {
         name: 'id',
-        selector: (row: { id: any; }) => row.id,
+        selector: (row: { id: number; }) => row.id,
         sortable: true,
     },
     {
         name: 'Nomor Surat',
-        selector: (row: { nomor_surat: any; }) => row.nomor_surat,
+        selector: (row: { nomor_surat: string; }) => row.nomor_surat,
         sortable: true,
     },
     {
         name: 'Nama Mitra',
-        selector: (row: { nama_mitra: any; }) => row.nama_mitra,
+        selector: (row: { nama_mitra: string; }) => row.nama_mitra,
         sortable: true,
     },
     {
         name: 'Judul KS',
-        selector: (row: { judul_ks: any; }) => row.judul_ks,
+        selector: (row: { judul_ks: string; }) => row.judul_ks,
         sortable: true,
     },
     {

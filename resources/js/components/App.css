@@ -4,6 +4,7 @@
     --base-white: #f4f4f4;
     --base-background-color: #222831;
     --base-grey: #393e46;
+    --font-family: 'Segoe UI', sans-serif;
     --base-font-family: "Akaya Kanadaka", cursive;
     --base-second-font-family: "Nunito", sans-serif;
 }
@@ -43,7 +44,7 @@
 }
 
 .first-font-family{
-    font-family: var(--base-font-family) !important;
+    font-family: var(--font-family) !important;
 }
 
 .second-font-family {

@@ -11,6 +11,7 @@ import Home from "./sub/Home";
 import SuratKerjaSama from "./sub/SuratKerjaSama";
 import TambahSuratKerjaSama from "./sub/TambahSuratKerjaSama";
 import DaftarMitra from './sub/DaftarMitra'
+import InformasiTransaksi from "./sub/InformasiTransaksi";
 
 const index = () => {
     return (
@@ -21,6 +22,7 @@ const index = () => {
                 <Route path="surat-kerja-sama/:id" element={<SuratKerjaSama/>}/>
                 <Route path="surat-kerja-sama/tambah" element={<TambahSuratKerjaSama/>}/>
                 <Route path="daftar-mitra" element={<DaftarMitra/>}/>
+                <Route path="informasi-transaksi" element={<InformasiTransaksi/>}/>
             </Routes>
 
         </div>

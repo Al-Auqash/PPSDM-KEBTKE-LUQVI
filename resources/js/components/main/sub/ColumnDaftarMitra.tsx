@@ -1,27 +1,27 @@
 export const columns = [
     {
         name: 'id',
-        selector: (row: { id: any; }) => row.id,
+        selector: (row: { id: number; }) => row.id,
         sortable: true,
     },
     {
         name: 'Nama Mitra',
-        selector: (row: { nama_mitra: any; }) => row.nama_mitra,
+        selector: (row: { nama_mitra: string; }) => row.nama_mitra,
         sortable: true,
     },
     {
         name: 'Alamat',
-        selector: (row: { alamat: any; }) => row.alamat,
+        selector: (row: { alamat: string; }) => row.alamat,
         sortable: true,
     },
     {
         name: 'Koordinator',
-        selector: (row: { koordinator: any; }) => row.koordinator,
+        selector: (row: { koordinator: string; }) => row.koordinator,
         sortable: true,
     },
     {
         name: 'Kontak',
-        selector: (row: { kontak: any; }) => row.kontak,
+        selector: (row: { kontak: string; }) => row.kontak,
         sortable: true,
     },
     {
