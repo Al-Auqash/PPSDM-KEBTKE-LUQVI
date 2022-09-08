@@ -22,7 +22,7 @@ class SuratKerjaSamaController extends Controller
         return $tipe_surat->toJson();
     }
 
-    public function getSuratKerjaSama(Request $request)
+    public function getSuratKerjaSamaByTipeSurat(Request $request)
     {
         $id = $request->id;
 

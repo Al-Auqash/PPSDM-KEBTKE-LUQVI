@@ -17,11 +17,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/daftar-mitra', function(){
+Route::get('/daftar-mitra', function () {
     return view('welcome');
 });
 
-Route::get('/informasi-transaksi', function(){
+Route::get('/informasi-transaksi', function () {
     return view('welcome');
 });
 
@@ -50,6 +50,7 @@ Route::prefix('surat-kerja-sama')->group(function () {
         return view('welcome');
     });
 });
+
 
 Route::prefix('authentication')->group(function () {
     Route::get('/signIn', function () {

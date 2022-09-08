@@ -30,7 +30,7 @@ const informasiTransaksi = () => {
 
     // @ts-ignore
     return (
-        <CardContent title="Surat Kerja Sama"
+        <CardContent title="Informasi Transaksi"
                      content={<DataTable columns={columns} data={dataInformasiTransaksi}
                      />}/>
 

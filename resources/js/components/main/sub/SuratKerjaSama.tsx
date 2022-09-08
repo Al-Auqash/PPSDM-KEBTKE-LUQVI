@@ -22,7 +22,7 @@ const suratKerjaSama = () => {
     const getAllSKS = async () => {
         await axios
             // .get("/api/surat-kerja-sama")
-            .get("/api/surat-kerja-sama", {
+            .get("/api/surat-kerja-sama/tipe-surat", {
                 params: {id: params.id},
             })
             .then((response) => {
