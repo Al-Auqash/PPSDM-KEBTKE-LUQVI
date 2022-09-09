@@ -33,6 +33,17 @@ class SuratKerjaSamaController extends Controller
         return $id->toJson();
     }
 
+    public function getSuratKerjaSamaById(Request $request)
+    {
+        $id = $request->id;
+
+        $id = SuratKerjaSama::select('*')
+            ->where('id', '=', $id)
+            ->get();
+
+        return $id->toJson();
+    }
+
     public function getDaftarMitra(Request $request)
     {
         $keyword = $request->keyword;
