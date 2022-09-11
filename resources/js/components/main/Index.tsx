@@ -16,11 +16,11 @@ import EditSuratKerjaSama from "./sub/EditSuratKerjaSama";
 
 const index = () => {
     return (
-        <div className="d-flex flex-column first-font-family p-0 m-0">
+        <div className="d-flex flex-column base-font-family p-0 m-0">
             <Navbar/>
             <Routes>
                 <Route path="" element={<Home/>}/>
-                <Route path="surat-kerja-sama/:id" element={<SuratKerjaSama/>}/>
+                <Route path="surat-kerja-sama/:nama/:id" element={<SuratKerjaSama/>}/>
                 <Route path="surat-kerja-sama/tambah" element={<TambahSuratKerjaSama/>}/>
                 <Route path="surat-kerja-sama/edit/:id" element={<EditSuratKerjaSama/>}/>
                 <Route path="daftar-mitra" element={<DaftarMitra/>}/>

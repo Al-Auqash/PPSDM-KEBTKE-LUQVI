@@ -7,8 +7,6 @@ import {
     NavLink,
 } from "react-router-dom";
 
-import "./App.css";
-
 import Authentication from './authentication/Index';
 import Main from './main/Index';
 

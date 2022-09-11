@@ -1,0 +1,19 @@
+@charset "UTF-8";
+:root {
+    --base-blue: #3D5467;
+    --base-green: #8AA29E;
+    --base-font-family: 'Lato', sans-serif;
+    --base-second-font-family: 'Chau Philomene One', sans-serif;;
+}
+
+.background-blue {
+    background-color: var(--base-blue); !important;
+}
+
+.base-font-family{
+    font-family: var(--base-font-family); !important;
+}
+
+.base-second-font-family{
+    font-family: var(--base-second-font-family); !important;
+}

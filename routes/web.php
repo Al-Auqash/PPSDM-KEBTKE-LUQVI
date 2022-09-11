@@ -30,7 +30,7 @@ Route::prefix('surat-kerja-sama')->group(function () {
         return view('welcome');
     });
 
-    Route::get('/{id}', function () {
+    Route::get('/{nama}/{id}', function () {
         return view('welcome');
     });
 

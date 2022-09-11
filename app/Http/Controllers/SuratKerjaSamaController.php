@@ -22,6 +22,15 @@ class SuratKerjaSamaController extends Controller
         return $tipe_surat->toJson();
     }
 
+    public function tipeSuratById(Request $request)
+    {
+        $id = $request->id;
+        $tipe_surat = TipeSurat::where('id', '=', $id)
+            ->first();
+
+        return $tipe_surat->toJson();
+    }
+
     public function getSuratKerjaSamaByTipeSurat(Request $request)
     {
         $id = $request->id;

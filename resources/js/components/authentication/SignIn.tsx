@@ -4,8 +4,6 @@ import {useNavigate} from "react-router-dom";
 import {useState} from "react";
 import axios from "axios";
 
-import "./../App.css";
-
 const signIn = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
