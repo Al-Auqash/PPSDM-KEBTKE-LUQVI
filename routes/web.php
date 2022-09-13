@@ -34,11 +34,11 @@ Route::prefix('surat-kerja-sama')->group(function () {
         return view('welcome');
     });
 
-    Route::get('/detail/{id}', function () {
+    Route::get('/{nama}/{id}/detail/{secondid}', function () {
         return view('welcome');
     });
 
-    Route::get('/edit/{id}', function () {
+    Route::get('/{nama}/{id}/edit/{secondid}', function () {
         return view('welcome');
     });
 

@@ -2,7 +2,8 @@ export const customStyle = {
     rows: {
         style: {
             minHeight: '72px', // override the row height
-            fontSize: '13pt',
+            fontSize: '12pt',
+            fontWeight: 'bold',
         },
     },
     headCells: {
