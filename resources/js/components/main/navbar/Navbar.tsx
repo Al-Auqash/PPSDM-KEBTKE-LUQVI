@@ -83,7 +83,7 @@ const Navbar = () => {
                                data-bs-toggle="dropdown" aria-expanded="false">
                                 Surat Kerja Sama
                             </a>
-                            <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <ul className="dropdown-menu background-green" aria-labelledby="navbarDropdown">
                                 {tipeSurat.map((tipeSurat) => (
                                     <li key={tipeSurat.id}>
                                         <a className="dropdown-item text-black fw-bold"
@@ -115,7 +115,7 @@ const Navbar = () => {
                                data-bs-toggle="dropdown" aria-expanded="false">
                                 Detail Surat
                             </a>
-                            <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <ul className="dropdown-menu background-green" aria-labelledby="navbarDropdown">
                                 <li><a className="dropdown-item text-black fw-bold" href="/daftar-mitra">Daftar
                                     Mitra</a></li>
                                 <li><a className="dropdown-item text-black fw-bold" href="/informasi-transaksi">Informasi
@@ -128,8 +128,8 @@ const Navbar = () => {
                                data-bs-toggle="dropdown" aria-expanded="false">
                                 Halo, User
                             </a>
-                            <ul className="dropdown-menu text-black fw-bold" aria-labelledby="navbarDropdown">
-                                <li><a className="dropdown-item" href="#">Sign Out</a></li>
+                            <ul className="dropdown-menu background-green" aria-labelledby="navbarDropdown">
+                                <li><a className="dropdown-item text-black fw-bold" href="#">Sign Out</a></li>
                             </ul>
                         </li>
                     </ul>

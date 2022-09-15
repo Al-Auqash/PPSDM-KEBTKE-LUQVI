@@ -21,6 +21,7 @@
         <style>
             body {
                 font-family: 'Lato', sans-serif;
+                background-color: #F1EDEE;
             }
         </style>
 

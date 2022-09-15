@@ -10,6 +10,10 @@
     background-color: var(--base-blue); !important;
 }
 
+.background-green {
+    background-color: var(--base-green); !important;
+}
+
 .base-font-family{
     font-family: var(--base-font-family); !important;
 }
