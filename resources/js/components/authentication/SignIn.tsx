@@ -39,16 +39,20 @@ const signIn = () => {
     };
 
     return (
-        <div className="container d-flex justify-content-center align-items-center">
-            <div className="card w-50">
-                <div className="card-body">
+        <div className="container d-flex justify-content-center align-items-center flex-column">
+            <div className="d-flex flex-row w-50">
+                <h1 className="base-second-font-family text-nowrap w-75 pt-4">DR. LUQVI</h1>
+                <h2 className="base-second-font-family text-wrap">Data Repository for Linking Quality Vocational Cooperation</h2>
+            </div>
+            <div className="card w-50 background-purple">
+                <div className="card-body p-4">
                     <form
                         method="post"
                         className="form-group"
                         onSubmit={signIn}
                     >
                         {notification && <div>{notification}</div>}
-                        <div className="form-group">
+                        <div className="form-group border-0">
                             <div className="input-group my-3">
                                 <span className="input-group-text bg-warning p-3" id="basic-addon1">
                                     <svg

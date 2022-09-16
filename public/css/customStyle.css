@@ -2,6 +2,7 @@
 :root {
     --base-blue: #3D5467;
     --base-green: #8AA29E;
+    --base-purple: #A66A87;
     --base-font-family: 'Lato', sans-serif;
     --base-second-font-family: 'Chau Philomene One', sans-serif;;
 }
@@ -12,6 +13,10 @@
 
 .background-green {
     background-color: var(--base-green); !important;
+}
+
+.background-purple {
+    background-color: var(--base-purple); !important;
 }
 
 .base-font-family{
