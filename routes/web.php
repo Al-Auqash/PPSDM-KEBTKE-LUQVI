@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\LogoutController;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,7 +56,13 @@ Route::prefix('surat-kerja-sama')->group(function () {
 
 
 Route::prefix('authentication')->group(function () {
-    Route::get('/signIn', function () {
+    Route::get('/sign-in', function () {
         return view('welcome');
     });
+    Route::get('/sign-up', function () {
+        return view('welcome');
+    });
+    Route::post('/sign-in', [LoginController::class, 'index']);
+    Route::post('/sign-up', [RegisterController::class, 'index']);
+    Route::post('/sign-out', [LogoutController::class, 'index']);
 });

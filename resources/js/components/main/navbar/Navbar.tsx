@@ -9,24 +9,30 @@ const Navbar = () => {
         nama_tipe_surat: string,
     }
 
-    // const signOut = () => {
-    //     const token = localStorage.getItem("token");
-    //     axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
-    //
-    //     axios
-    //         .post("/authentication/signOut")
-    //         .then(() => {
-    //             localStorage.removeItem("token");
-    //             localStorage.clear();
-    //             window.location.href = "/";
-    //         })
-    //         .catch((error) => {
-    //             console.log(error.response.data);
-    //         });
-    // };
+    interface user {
+        id: number | undefined,
+        username: string | undefined,
+    }
+
+    const signOut = () => {
+        const token = localStorage.getItem("token");
+        axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+
+        axios
+            .post("/authentication/sign-out")
+            .then(() => {
+                localStorage.removeItem("token");
+                localStorage.clear();
+                window.location.href = "/authentication/sign-in";
+            })
+            .catch((error) => {
+                console.log(error.response.data);
+            });
+    };
     //
     // const [user, setUser] = useState([]);
     const [tipeSurat, setTipeSurat] = useState<tipeSurat[]>([]);
+    const [user, setUser] = useState<user>();
 
     const getTipeSKS = async () => {
         await axios
@@ -40,8 +46,21 @@ const Navbar = () => {
             });
     };
 
+    const getUser = () => {
+        if (localStorage.getItem("username")) {
+            setUser(
+                {
+                    // @ts-ignore
+                    "id": localStorage.getItem("user_id"),
+                    // @ts-ignore
+                    "username": localStorage.getItem("username"),
+                });
+        }
+    }
+
     useEffect(() => {
             getTipeSKS();
+            getUser();
         },
         []
     )
@@ -49,8 +68,8 @@ const Navbar = () => {
     return (
         <nav className="navbar sticky-top navbar-expand-md navbar-dark background-blue w-100">
             <div className="container-fluid d-flex flex-row justify-content-space-between m-0">
-                <a className="navbar-brand" href="{{ url('/') }}">
-                    <img src="" width="50" alt="..."/>
+                <a className="navbar-brand p-0" href="{{ url('/') }}">
+                    <img src="/images/Logo.jpeg" width="75" alt="not found"/>
                 </a>
                 <a className="navbar-brand base-second-font-family fw-bold fs-1 text-black" href="{{ url('/') }}">
                     DR. LUQVI
@@ -88,7 +107,8 @@ const Navbar = () => {
                                     <li key={tipeSurat.id}>
                                         <a className="dropdown-item text-black fw-bold"
                                            href={`/surat-kerja-sama/${tipeSurat.nama_tipe_surat.replace(/\s+/g, '-').toLowerCase()}/${tipeSurat.id}`}>
-                                            <img width="16" height="16" className="" src="/images/folder.svg" alt="image not found" />
+                                            <img width="16" height="16" className="" src="/images/folder.svg"
+                                                 alt="image not found"/>
 
                                             <span className="mx-2">{tipeSurat.nama_tipe_surat}</span>
                                         </a>
@@ -123,13 +143,30 @@ const Navbar = () => {
                             </ul>
                         </li>
                         <li className="nav-item dropdown">
-                            <a className="nav-link dropdown-toggle text-black fw-bold" href="#" id="account"
+                            <a className="nav-link dropdown-toggle text-black fw-bold d-flex flex-row align-items-center"
+                               href="#" id="account"
                                role="button"
                                data-bs-toggle="dropdown" aria-expanded="false">
-                                Halo, User
+                                {
+                                    user ? (
+                                        <span className="pe-2">Halo, {user.username}</span>
+                                    ) : (
+                                        <span className="pe-2">Halo, User</span>
+                                    )
+                                }
+
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                                     className="bi bi-person-circle" viewBox="0 0 16 16">
+                                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                                    <path fill-rule="evenodd"
+                                          d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                                </svg>
                             </a>
                             <ul className="dropdown-menu background-green" aria-labelledby="navbarDropdown">
-                                <li><a className="dropdown-item text-black fw-bold" href="#">Sign Out</a></li>
+                                <li>
+                                    <a className="dropdown-item text-black fw-bold" href="#" onClick={signOut}>Sign
+                                        Out</a>
+                                </li>
                             </ul>
                         </li>
                     </ul>

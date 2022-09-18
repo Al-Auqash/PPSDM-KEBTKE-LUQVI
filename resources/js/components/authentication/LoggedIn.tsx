@@ -1,4 +1,4 @@
-const loggedIn = () : boolean => {
+const loggedIn = (): boolean => {
     if (localStorage.getItem("user_id")) {
         return true;
     } else {
@@ -6,4 +6,4 @@ const loggedIn = () : boolean => {
     }
 };
 
-module.exports = loggedIn;
+export default loggedIn;

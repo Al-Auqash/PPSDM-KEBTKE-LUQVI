@@ -6,16 +6,18 @@ import {
     NavLink,
 } from "react-router-dom";
 
+import "./style.css";
+
 import SignIn from "./SignIn";
+import SignUp from "./SignUp";
 
 const index = () => {
     return (
-        <div className="row align-items-center mt-4">
-            <div className="col d-flex flex-column justify-content-center align-items-center">
-                <Routes>
-                    <Route path="/signIn" element={<SignIn />} />
-                </Routes>
-            </div>
+        <div className="container-fluid background-image p-0 m-0">
+            <Routes>
+                <Route path="/sign-in" element={<SignIn/>}/>
+                <Route path="/sign-up" element={<SignUp/>}/>
+            </Routes>
         </div>
     );
 };

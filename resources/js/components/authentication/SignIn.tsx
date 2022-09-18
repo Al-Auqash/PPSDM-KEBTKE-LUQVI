@@ -3,9 +3,10 @@ import {useNavigate} from "react-router-dom";
 
 import {useState} from "react";
 import axios from "axios";
+import LoggedIn from "./LoggedIn";
 
 const signIn = () => {
-    const [email, setEmail] = useState("");
+    const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [notification, setNotification] = useState([]);
 
@@ -16,11 +17,11 @@ const signIn = () => {
 
         const formData = new FormData();
 
-        formData.append("email", email);
+        formData.append("username", username);
         formData.append("password", password);
 
         await axios
-            .post("/authentication/signIn", formData)
+            .post("/authentication/sign-in", formData)
             .then((response) => {
                 //set token on localStorage
                 localStorage.setItem("token", response.data.token);
@@ -40,9 +41,11 @@ const signIn = () => {
 
     return (
         <div className="container d-flex justify-content-center align-items-center flex-column">
+            <img className="float-start" src="/images/1.jpeg" alt="not found"/>
             <div className="d-flex flex-row w-50">
                 <h1 className="base-second-font-family text-nowrap w-75 pt-4">DR. LUQVI</h1>
-                <h2 className="base-second-font-family text-wrap">Data Repository for Linking Quality Vocational Cooperation</h2>
+                <h2 className="base-second-font-family text-wrap">Data Repository for Linking Quality Vocational
+                    Cooperation</h2>
             </div>
             <div className="card w-50 background-purple">
                 <div className="card-body p-4">
@@ -52,9 +55,9 @@ const signIn = () => {
                         onSubmit={signIn}
                     >
                         {notification && <div>{notification}</div>}
-                        <div className="form-group border-0">
+                        <div className="form-group">
                             <div className="input-group my-3">
-                                <span className="input-group-text bg-warning p-3" id="basic-addon1">
+                                <span className="input-group-text bg-warning p-3 border-0" id="basic-addon1">
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                         className="bi bi-person-fill" viewBox="0 0 16 16">
@@ -63,12 +66,12 @@ const signIn = () => {
                                     </svg>
                                 </span>
                                 <input
-                                    className="form-control bg-dark text-white"
+                                    className="form-control bg-dark text-white border-0"
                                     type="text"
-                                    name="email"
-                                    value={email}
-                                    onChange={(e) => setEmail(e.target.value)}
-                                    id="email"
+                                    name="username"
+                                    value={username}
+                                    onChange={(e) => setUsername(e.target.value)}
+                                    id="username"
                                     placeholder="username"
                                 />
                             </div>
@@ -76,7 +79,7 @@ const signIn = () => {
 
                         <div className="form-group">
                             <div className="input-group my-3">
-                                <span className="input-group-text bg-warning p-3" id="basic-addon1">
+                                <span className="input-group-text bg-warning p-3 border-0" id="basic-addon1">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                          className="bi bi-lock-fill" viewBox="0 0 16 16">
                                     <path
@@ -84,7 +87,7 @@ const signIn = () => {
                                     </svg>
                                 </span>
                                 <input
-                                    className="form-control bg-dark text-white"
+                                    className="form-control bg-dark text-white border-0"
                                     type="password"
                                     name="password"
                                     value={password}
