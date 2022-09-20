@@ -69,7 +69,7 @@ const Navbar = () => {
         <nav className="navbar sticky-top navbar-expand-md navbar-dark background-blue w-100">
             <div className="container-fluid d-flex flex-row justify-content-space-between m-0">
                 <a className="navbar-brand p-0" href="{{ url('/') }}">
-                    <img src="/images/Logo.jpeg" width="75" alt="not found"/>
+                    <img src="/images/Logo.png" width="75" alt="not found"/>
                 </a>
                 <a className="navbar-brand base-second-font-family fw-bold fs-1 text-black" href="{{ url('/') }}">
                     DR. LUQVI
@@ -164,8 +164,9 @@ const Navbar = () => {
                             </a>
                             <ul className="dropdown-menu background-green" aria-labelledby="navbarDropdown">
                                 <li>
-                                    <a className="dropdown-item text-black fw-bold" href="#" onClick={signOut}>Sign
-                                        Out</a>
+                                    <a className="dropdown-item text-black fw-bold" href="#" onClick={signOut}>
+                                        Sign Out
+                                    </a>
                                 </li>
                             </ul>
                         </li>

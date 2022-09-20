@@ -7,7 +7,7 @@ import {columns} from "./ColumnSuratKerjaSama";
 import CardContent from "./CardContent";
 
 import {customStyle} from "./CustomDataTables";
-import Table from "./../../Table/index";
+import Table from "./../../Table/TableSuratKerjaSama";
 
 const suratKerjaSama = () => {
 

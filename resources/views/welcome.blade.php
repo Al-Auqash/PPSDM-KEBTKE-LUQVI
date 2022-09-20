@@ -6,8 +6,9 @@
 
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
+        <link rel="icon" type="image/png" href="{{ asset('../images/Logo.png') }}">
 
-        <title>Laravel</title>
+        <title>DR LUQVI</title>
 
         <!-- Fonts -->
         <link href="http://fonts.cdnfonts.com/css/lato" rel="stylesheet">

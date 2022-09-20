@@ -4,6 +4,7 @@ import axios from "axios";
 import DataTable from 'react-data-table-component';
 import {columns} from "./ColumnDaftarMitra";
 import CardContent from "./CardContent";
+import Table from "../../Table";
 
 const daftarMitra = () => {
 
@@ -62,8 +63,8 @@ const daftarMitra = () => {
 
     return (
         <CardContent title="Daftar Mitra"
-                     content={<DataTable columns={columns}
-                                         data={daftarMitra}/>}/>
+                     content={<Table data={daftarMitra} rowsPerPage={5}/>
+                     }/>
     )
 }
 
