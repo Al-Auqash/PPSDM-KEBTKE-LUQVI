@@ -30,4 +30,5 @@ Route::get('/tipe-surat-by-id', [SuratKerjaSamaController::class, 'tipeSuratById
 Route::prefix('surat-kerja-sama')->group(function () {
     Route::get('/tipe-surat', [SuratKerjaSamaController::class, 'getSuratKerjaSamaByTipeSurat']);
     Route::get('/', [SuratKerjaSamaController::class, 'getSuratKerjaSamaById']);
+    Route::post('/tambah', [SuratKerjaSamaController::class, 'tambahSuratKerjaSama']);
 });

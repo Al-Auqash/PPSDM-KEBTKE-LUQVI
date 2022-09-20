@@ -65,4 +65,31 @@ class SuratKerjaSamaController extends Controller
 
         return $daftar->toJson();
     }
+
+    public function tambahSuratKerjaSama(Request $request)
+    {
+        $surat_kerja_sama = SuratKerjaSama::create([
+            "id_tipe_surat" => $request->id_tipe_surat,
+            "nomor_surat" => $request->nomor_surat,
+            "judul_ks" => $request->judul_ks,
+            "yang_bertanda_tangan" => $request->yang_bertanda_tangan,
+            "tanggal_dimulai" => $request->tanggal_dimulai,
+            "tanggal_berakhir" => $request->tanggal_berakhir,
+            "estimasi_penerimaan" => $request->estimasi_penerimaan,
+            "realisasi_penerimaan" => $request->realisasi_penerimaan,
+            "capaian" => $request->capaian,
+            "catatan" => $request->catatan,
+            "nama_mitra" => $request->nama_mitra,
+            "koordinator" => $request->koordinator,
+            "alamat" => $request->alamat,
+            "kontak" => $request->kontak,
+            "rekening_mitra" => $request->rekening_mitra,
+        ]);
+
+        if ($surat_kerja_sama) {
+            return response()->json([
+                "success" => true,
+            ], 201);
+        }
+    }
 }

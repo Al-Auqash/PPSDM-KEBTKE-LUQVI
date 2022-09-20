@@ -7,6 +7,7 @@ import {columns} from "./ColumnSuratKerjaSama";
 import CardContent from "./CardContent";
 
 import {customStyle} from "./CustomDataTables";
+import Table from "./../../Table/index";
 
 const suratKerjaSama = () => {
 
@@ -67,17 +68,19 @@ const suratKerjaSama = () => {
     }, [])
 
     return (
-        <CardContent title={name}
-                     content={
-                         <DataTable
-                             columns={columns}
-                             data={dataSKS}
-                             customStyles={customStyle}
-                             defaultSortAsc={false}
-                             pagination
-                             highlightOnHover
-                         />
-                     }/>
+        // <CardContent title={name}
+        //              content={
+        //                  <DataTable
+        //                      columns={columns}
+        //                      data={dataSKS}
+        //                      customStyles={customStyle}
+        //                      defaultSortAsc={false}
+        //                      pagination
+        //                      highlightOnHover
+        //                  />
+        //              }/>
+        <CardContent title={name} content={<Table data={dataSKS} rowsPerPage={5}/>
+        }/>
     );
 };
 export default suratKerjaSama

@@ -12,18 +12,18 @@ class SuratKerjaSama extends Model
     protected $table = 'surat_kerja_sama';
 
     protected $fillable = [
-        'tipe_surat',
+        'id_tipe_surat',
         'nomor_surat',
         'judul_ks',
         'yang_bertanda_tangan',
         'tanggal_dimulai',
-        'tangal_berakhir',
+        'tanggal_berakhir',
         'estimasi_penerimaan',
         'realisasi_penerimaan',
         'capaian',
         'catatan',
         'nama_mitra',
-        'kooridnator',
+        'koordinator',
         'alamat',
         'kontak',
         'rekening_mitra',
