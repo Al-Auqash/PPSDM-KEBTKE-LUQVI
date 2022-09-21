@@ -1,7 +1,37 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import CardContent from "./CardContent";
+import axios from "axios";
+import {SuratKerjaSama} from "../../interface/Interface";
+import {useParams} from "react-router-dom";
 
 const detailSuratKerjaSama = () => {
+
+    const params = useParams();
+
+    const title = params.nama?.replace(/-/g, ' ').toUpperCase();
+
+    // @ts-ignore
+    const [dataSKS, setDataSKS] = useState<SuratKerjaSama>([]);
+
+    const getSuratKerjaSamaById = async () => {
+        await axios
+            // .get("/api/surat-kerja-sama")
+            .get("/api/surat-kerja-sama/", {
+                params: {id: params.id},
+            })
+            .then((response) => {
+                setDataSKS(response.data[0]);
+            })
+            .catch((error) => {
+                console.log(error);
+                console.log("error")
+            });
+    };
+
+    useEffect(() => {
+        getSuratKerjaSamaById()
+    }, [])
+
     const ContentDetail = () => {
         return (
             <div>
@@ -14,7 +44,7 @@ const detailSuratKerjaSama = () => {
                             :
                         </td>
                         <td>
-                            Nomor Surat
+                            {dataSKS.nomor_surat}
                         </td>
                     </tr>
                     <tr>
@@ -25,7 +55,7 @@ const detailSuratKerjaSama = () => {
                             :
                         </td>
                         <td>
-                            Nama Perusahaan
+                            {dataSKS.nama_mitra}
                         </td>
                     </tr>
                     <tr>
@@ -36,7 +66,7 @@ const detailSuratKerjaSama = () => {
                             :
                         </td>
                         <td>
-                            Judul Ks
+                            {dataSKS.judul_ks}
                         </td>
                     </tr>
                     <tr>
@@ -47,9 +77,10 @@ const detailSuratKerjaSama = () => {
                             :
                         </td>
                         <td>
-                            Tanggal Dimulai
+                            {dataSKS.tanggal_dimulai}
                         </td>
                     </tr>
+                    {}
                     <tr>
                         <td className="pe-4">
                             Tanggal Berakhir
@@ -58,7 +89,7 @@ const detailSuratKerjaSama = () => {
                             :
                         </td>
                         <td>
-                            Tanggal Berakhir
+                            {dataSKS.tanggal_berakhir}
                         </td>
                     </tr>
                     <tr>
@@ -69,7 +100,7 @@ const detailSuratKerjaSama = () => {
                             :
                         </td>
                         <td>
-                            Potensi Penerimaan
+                            {dataSKS.estimasi_penerimaan}
                         </td>
                     </tr>
                     <tr>
@@ -80,7 +111,7 @@ const detailSuratKerjaSama = () => {
                             :
                         </td>
                         <td>
-                            Realisasi Penerimaan
+                            {dataSKS.realisasi_penerimaan}
                         </td>
                     </tr>
                     <tr>
@@ -91,7 +122,7 @@ const detailSuratKerjaSama = () => {
                             :
                         </td>
                         <td>
-                            Capaian
+                            {dataSKS.capaian}
                         </td>
                     </tr>
                     <tr>
@@ -102,7 +133,7 @@ const detailSuratKerjaSama = () => {
                             :
                         </td>
                         <td>
-                            Catatan
+                            {dataSKS.catatan}
                         </td>
                     </tr>
                     <tr>
@@ -113,7 +144,7 @@ const detailSuratKerjaSama = () => {
                             :
                         </td>
                         <td>
-                            Yang Bertanda Tangan
+                            {dataSKS.yang_bertanda_tangan}
                         </td>
                     </tr>
                 </table>
@@ -121,7 +152,7 @@ const detailSuratKerjaSama = () => {
         )
     }
     return (
-        <CardContent title="Detail Dokumen" content={<ContentDetail/>}/>
+        <CardContent title={title} content={<ContentDetail/>}/>
     )
 }
 

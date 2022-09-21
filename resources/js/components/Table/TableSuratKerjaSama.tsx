@@ -41,7 +41,7 @@ const Table = ({data, rowsPerPage}) => {
                 </tr>
                 </thead>
                 <tbody>
-                {slice.map((el) => (
+                {slice.length ? (slice.map((el) => (
                     <tr className={styles.tableRowItems} key={el.id}>
                         {/*<td className={styles.tableCell}>{el.id}</td>*/}
                         <td className={styles.tableCell}>{el.nomor_surat}</td>
@@ -107,7 +107,11 @@ const Table = ({data, rowsPerPage}) => {
                             </div>
                         </td>
                     </tr>
-                ))}
+                ))) : (
+                    <tr>
+                        <td className={"text-center py-4 " + styles.tableCell} colspan={4}>Data Not Found</td>
+                    </tr>
+                )}
                 </tbody>
             </table>
             <TableFooter range={range} slice={slice} setPage={setPage} page={page}/>

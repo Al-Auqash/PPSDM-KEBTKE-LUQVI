@@ -62,7 +62,7 @@ const daftarMitra = () => {
     console.log(daftarMitra)
 
     return (
-        <CardContent title="Daftar Mitra"
+        <CardContent title="DAFTAR MITRA"
                      content={<Table data={daftarMitra} rowsPerPage={5}/>
                      }/>
     )

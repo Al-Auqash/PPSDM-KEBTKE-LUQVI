@@ -20,8 +20,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/daftar-mitra', function () {
-    return view('welcome');
+Route::prefix('daftar-mitra')->group(function () {
+    Route::get('', function () {
+        return view('welcome');
+    });
+
+    Route::get('/detail/{id}', function () {
+        return view('welcome');
+    });
 });
 
 Route::get('/informasi-transaksi', function () {
