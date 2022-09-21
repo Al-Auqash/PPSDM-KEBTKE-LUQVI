@@ -92,4 +92,33 @@ class SuratKerjaSamaController extends Controller
             ], 201);
         }
     }
+
+    public function editSuratKerjaSama(Request $request, SuratKerjaSama $surat_kerja_sama)
+    {
+        $data = $request->all();
+
+        if ($surat_kerja_sama->update($data)) {
+            return response()->json([
+                'success' => true,
+            ]);
+        }
+    }
+
+    public function deleteSuratKerjaSama(Request $request)
+    {
+        $id = $request->id;
+
+        $deleted = SuratKerjaSama::where('id', '=', $id)->delete();
+
+        if ($deleted) {
+            return response()->json([
+                'success' => true,
+            ]);
+        } else {
+            return response()->json([
+                'failed' => true,
+                'id' => $id,
+            ]);
+        }
+    }
 }

@@ -20,3 +20,10 @@ export interface SuratKerjaSama {
     kontak: number,
     rekening_mitra: number,
 }
+
+export interface SuratKerjaSama {
+    id: number,
+    nomor_surat: string,
+    nama_mitra: string,
+    judul_ks: string,
+}

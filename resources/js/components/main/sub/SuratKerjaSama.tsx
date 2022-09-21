@@ -1,27 +1,13 @@
 import React, {useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
 import axios from "axios";
-import DataTable from 'react-data-table-component';
-
-import {columns} from "./ColumnSuratKerjaSama";
 import CardContent from "./CardContent";
 
-import {customStyle} from "./CustomDataTables";
 import Table from "./../../Table/TableSuratKerjaSama";
 
+import {SuratKerjaSama, TipeSurat} from "../../interface/Interface";
+
 const suratKerjaSama = () => {
-
-    interface SuratKerjaSama {
-        id: number,
-        nomor_surat: string,
-        nama_mitra: string,
-        judul_ks: string,
-    }
-
-    interface TipeSurat {
-        id: number,
-        nama_tipe_surat: string,
-    }
 
     const params = useParams();
 
@@ -60,8 +46,6 @@ const suratKerjaSama = () => {
             });
     };
 
-
-    console.log(dataSKS)
     useEffect(() => {
         getAllSKS();
         getTipeSurat();

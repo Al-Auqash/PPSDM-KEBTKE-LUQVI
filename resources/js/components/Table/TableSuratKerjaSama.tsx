@@ -3,15 +3,37 @@ import React, {useState} from "react";
 import useTable from "./../hooks/useTable";
 import styles from "./Table.module.css";
 import TableFooter from "./TableFooter";
+import axios from "axios";
 
 const Table = ({data, rowsPerPage}) => {
+
+    const [modalId, setModalId] = useState(null)
     const [page, setPage] = useState(1);
     const {slice, range} = useTable(data, page, rowsPerPage);
+
+    const deleteSuratKerjaSama = (params) => {
+        axios
+            .delete("/api/surat-kerja-sama", {
+                params: {id: params},
+            })
+            .then(() => {
+                window.location.reload()
+            })
+            .catch((error) => {
+                console.log(error)
+            })
+    }
+
+    const setStateModalId = (param) => {
+        setModalId(param)
+    }
+
     return (
         <>
             <table className={styles.table}>
                 <thead className={styles.tableRowHeader}>
                 <tr>
+                    {/*<th className={styles.tableHeader}>id</th>*/}
                     <th className={styles.tableHeader}>Nomor Surat</th>
                     <th className={styles.tableHeader}>Nama Mitra</th>
                     <th className={styles.tableHeader}>Judul KS</th>
@@ -21,6 +43,7 @@ const Table = ({data, rowsPerPage}) => {
                 <tbody>
                 {slice.map((el) => (
                     <tr className={styles.tableRowItems} key={el.id}>
+                        {/*<td className={styles.tableCell}>{el.id}</td>*/}
                         <td className={styles.tableCell}>{el.nomor_surat}</td>
                         <td className={styles.tableCell}>{el.nama_mitra}</td>
                         <td className={styles.tableCell}>{el.judul_ks}</td>
@@ -41,7 +64,7 @@ const Table = ({data, rowsPerPage}) => {
                                             d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
                                     </svg>
                                 </a>
-                                <a className="mx-2 text-black" href=""
+                                <a className="mx-2 text-black" href="" onClick={() => setStateModalId(el.id)}
                                    data-bs-toggle="modal"
                                    data-bs-target="#myModal">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -73,7 +96,7 @@ const Table = ({data, rowsPerPage}) => {
                                                 >
                                                     Batal
                                                 </button>
-                                                <a href={"/surat-kerja-sama/delete" + el.id} type="button"
+                                                <a href="#" onClick={() => deleteSuratKerjaSama(modalId)}
                                                    className="btn btn-danger">
                                                     Hapus
                                                 </a>
