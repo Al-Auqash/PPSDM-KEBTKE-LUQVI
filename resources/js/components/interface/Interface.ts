@@ -27,3 +27,16 @@ export interface SuratKerjaSama {
     nama_mitra: string,
     judul_ks: string,
 }
+
+export interface DaftarMitraInterface {
+    id: number,
+    nama_mitra: string,
+    alamat: string,
+    koordinator: string,
+    kontak: string
+}
+
+export interface SearchFilter {
+    keyword: string,
+    region_id: string,
+}

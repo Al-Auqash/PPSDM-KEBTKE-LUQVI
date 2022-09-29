@@ -5,24 +5,12 @@ import DataTable from 'react-data-table-component';
 import {columns} from "./ColumnDaftarMitra";
 import CardContent from "./CardContent";
 import Table from "../../Table";
+import {DaftarMitraInterface, SearchFilter} from "../../interface/Interface";
 
 const daftarMitra = () => {
 
-    interface SearchInterface {
-        keyword: string,
-        region_id: string,
-    }
-
-    interface DaftarMitraInterface {
-        id: number,
-        nama_mitra: string,
-        alamat: string,
-        koordinator: string,
-        kontak: string
-    }
-
     const [daftarMitra, setDaftarMitra] = useState<DaftarMitraInterface[]>([]);
-    const [search, setSearch] = useState<SearchInterface>();
+    const [search, setSearch] = useState<SearchFilter>();
 
     const getDaftarMitra = async () => {
         await axios
