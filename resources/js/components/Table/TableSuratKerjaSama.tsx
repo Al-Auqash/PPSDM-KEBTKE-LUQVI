@@ -30,6 +30,89 @@ const Table = ({data, rowsPerPage}) => {
 
     return (
         <>
+            <button type="button" className="btn float-end rounded d-flex flex-row background-green"
+                    data-bs-toggle="modal"
+                    data-bs-target="#exampleModal">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                     className="bi bi-funnel" viewBox="0 0 16 16">
+                    <path
+                        d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5v-2zm1 .5v1.308l4.372 4.858A.5.5 0 0 1 7 8.5v5.306l2-.666V8.5a.5.5 0 0 1 .128-.334L13.5 3.308V2h-11z"/>
+                </svg>
+                <span className="fw-bold">Filter</span>
+            </button>
+
+            {/*Modal*/}
+            <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog"
+                 aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div className="modal-dialog modal-dialog-centered" role="document">
+                    <div className="modal-content background-green border-0">
+                        <div className="modal-header">
+                            <h5 className="modal-title fs-4 fw-bold" id="exampleModalLongTitle">Filter</h5>
+                            <button type="button" className="close rounded-circle" data-bs-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div className="modal-body">
+                            <form>
+
+                                <div className="form-group py-2">
+                                    <div className="row">
+                                        <label className="control-label col-3 fs-5">Keyword</label>
+                                        <label className="control-label col-auto">:</label>
+                                        <div className="col-8">
+                                            <input type="email" className="form-control" id="exampleInputEmail1"
+                                                   aria-describedby="emailHelp" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="form-group py-2">
+                                    <div className="row">
+                                        <label className="control-label col-3 fs-5">Domain</label>
+                                        <label className="control-label col-auto">:</label>
+                                        <div className="col-8">
+                                            <div className="form-check">
+                                                <input className="form-check-input" type="radio" name="exampleRadios"
+                                                       id="exampleRadios1" value="option1" checked/>
+                                                <label className="form-check-label fs-5" htmlFor="exampleRadios1">
+                                                    Dalam Negeri
+                                                </label>
+                                            </div>
+                                            <div className="form-check">
+                                                <input className="form-check-input" type="radio" name="exampleRadios"
+                                                       id="exampleRadios2" value="option2"/>
+                                                <label className="form-check-label fs-5" htmlFor="exampleRadios2">
+                                                    Luar Negeri
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="form-group py-2">
+                                    <div className="row">
+                                        <label className="control-label col-3 fs-5">Tahun</label>
+                                        <label className="control-label col-auto">:</label>
+                                        <div className="col-8">
+                                            <input
+                                                className="form-control w-100"
+                                                type="date"
+                                                name="tanggal_dimulai"
+                                                id="tanggal_dimulai"
+                                                autoComplete="false"
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+                        <div className="modal-footer">
+                            <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                            <button type="button" className="btn btn-primary px-4 fw-bold">CARI</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <table className={styles.table}>
                 <thead className={styles.tableRowHeader}>
                 <tr>
@@ -109,12 +192,14 @@ const Table = ({data, rowsPerPage}) => {
                     </tr>
                 ))) : (
                     <tr>
-                        <td className={"text-center py-4 " + styles.tableCell} colspan={4}>Data Not Found</td>
+                        <td className={"text-center py-4 " + styles.tableCell} colSpan={4}>Data Not Found</td>
                     </tr>
                 )}
                 </tbody>
             </table>
             <TableFooter range={range} slice={slice} setPage={setPage} page={page}/>
+
+
         </>
     );
 };

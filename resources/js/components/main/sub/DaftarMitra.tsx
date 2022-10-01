@@ -1,8 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {useParams} from "react-router-dom";
 import axios from "axios";
-import DataTable from 'react-data-table-component';
-import {columns} from "./ColumnDaftarMitra";
 import CardContent from "./CardContent";
 import Table from "../../Table";
 import {DaftarMitraInterface, SearchFilter} from "../../interface/Interface";
