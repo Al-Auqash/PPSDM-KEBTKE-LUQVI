@@ -48,8 +48,15 @@ const Table = ({data, rowsPerPage}) => {
                     <div className="modal-content background-green border-0">
                         <div className="modal-header">
                             <h5 className="modal-title fs-4 fw-bold" id="exampleModalLongTitle">Filter</h5>
-                            <button type="button" className="close rounded-circle" data-bs-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
+                            <button type="button" className="close rounded-circle py-2 px-2" data-bs-dismiss="modal"
+                                    aria-label="Close">
+                                <span aria-hidden="true">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                         className="bi bi-x-lg" viewBox="0 0 16 16">
+                                      <path
+                                          d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+                                    </svg>
+                                </span>
                             </button>
                         </div>
                         <div className="modal-body">
@@ -61,7 +68,7 @@ const Table = ({data, rowsPerPage}) => {
                                         <label className="control-label col-auto">:</label>
                                         <div className="col-8">
                                             <input type="email" className="form-control" id="exampleInputEmail1"
-                                                   aria-describedby="emailHelp" />
+                                                   aria-describedby="emailHelp"/>
                                         </div>
                                     </div>
                                 </div>
@@ -106,7 +113,7 @@ const Table = ({data, rowsPerPage}) => {
                             </form>
                         </div>
                         <div className="modal-footer">
-                            <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                            {/*<button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Batal</button>*/}
                             <button type="button" className="btn btn-primary px-4 fw-bold">CARI</button>
                         </div>
                     </div>
