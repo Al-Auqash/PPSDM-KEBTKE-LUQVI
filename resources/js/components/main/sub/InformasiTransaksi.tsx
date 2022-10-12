@@ -1,19 +1,10 @@
-import React, {useState} from 'react';
-import DataTable from 'react-data-table-component';
+import React, {useEffect, useState} from 'react';
 import CardContent from "./CardContent";
-import {columns} from "./ColumnInformasiTransaksi";
 import axios from "axios";
+import TableInformasiTransaksi from "../../Table/TableInformasiTransaksi";
+import {DataInformasiTransaksiInterface} from "../../interface/Interface";
 
 const informasiTransaksi = () => {
-
-    interface DataInformasiTransaksiInterface {
-        id: number,
-        nama_perusahaan: string,
-        tanggal_transaksi: string,
-        jenis_layanan: string,
-        jumlah_penerimaan: string
-    }
-
     const [dataInformasiTransaksi, setDataInformasiTransaksi] = useState<DataInformasiTransaksiInterface[]>([]);
     const getInformasiTransaksi = async () => {
         await axios
@@ -21,6 +12,7 @@ const informasiTransaksi = () => {
             .get("/api/surat-kerja-sama")
             .then((response) => {
                 setDataInformasiTransaksi(response.data);
+                console.log(response)
             })
             .catch((error) => {
                 console.log(error);
@@ -28,10 +20,16 @@ const informasiTransaksi = () => {
             });
     };
 
+    useEffect(() => {
+        getInformasiTransaksi()
+    }, [])
+
+    console.log(dataInformasiTransaksi)
+
     // @ts-ignore
     return (
         <CardContent title="Informasi Transaksi"
-                     content={<DataTable columns={columns} data={dataInformasiTransaksi}
+                     content={<TableInformasiTransaksi data={dataInformasiTransaksi} rowsPerPage={5}
                      />}/>
 
     )

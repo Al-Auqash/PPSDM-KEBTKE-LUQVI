@@ -40,3 +40,11 @@ export interface SearchFilter {
     keyword: string,
     region_id: string,
 }
+
+export interface DataInformasiTransaksiInterface {
+    id: number,
+    nama_perusahaan: string,
+    tanggal_transaksi: string,
+    jenis_layanan: string,
+    jumlah_penerimaan: string
+}
