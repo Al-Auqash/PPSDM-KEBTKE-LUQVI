@@ -9,10 +9,10 @@ const informasiTransaksi = () => {
     const getInformasiTransaksi = async () => {
         await axios
             // .get("/api/surat-kerja-sama")
-            .get("/api/surat-kerja-sama")
+            .get("/api/informasi-transaksi")
             .then((response) => {
-                setDataInformasiTransaksi(response.data);
-                console.log(response)
+                setDataInformasiTransaksi(response.data.data);
+                console.log(response.data.data)
             })
             .catch((error) => {
                 console.log(error);
@@ -24,7 +24,7 @@ const informasiTransaksi = () => {
         getInformasiTransaksi()
     }, [])
 
-    console.log(dataInformasiTransaksi)
+    // console.log(dataInformasiTransaksi)
 
     // @ts-ignore
     return (

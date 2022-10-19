@@ -1,13 +1,13 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
 import CardContent from "./CardContent";
-import Table from "../../Table";
-import {DaftarMitraInterface, SearchFilter} from "../../interface/Interface";
+import Table from "../../Table/TableDaftarMitra";
+import {DaftarMitraInterface, SearchFilterDaftarMitra} from "../../interface/Interface";
 
 const daftarMitra = () => {
 
     const [daftarMitra, setDaftarMitra] = useState<DaftarMitraInterface[]>([]);
-    const [search, setSearch] = useState<SearchFilter>();
+    const [search, setSearch] = useState<SearchFilterDaftarMitra>();
 
     const getDaftarMitra = async () => {
         await axios
@@ -27,7 +27,6 @@ const daftarMitra = () => {
 
         const params = {
             keyword: search?.keyword,
-            region_id: search?.region_id,
         };
 
         await axios
@@ -40,6 +39,14 @@ const daftarMitra = () => {
             });
     };
 
+    const handleChange = (e: React.FormEvent<HTMLInputElement>) => {
+        setSearch((inputField) => ({
+            ...inputField,
+            // @ts-ignore
+            keyword: e.target.value,
+        }));
+    };
+
     useEffect(() => {
         getDaftarMitra();
     }, [])
@@ -48,7 +55,7 @@ const daftarMitra = () => {
 
     return (
         <CardContent title="DAFTAR MITRA"
-                     content={<Table data={daftarMitra} rowsPerPage={5}/>
+                     content={<Table handleChange={handleChange} data={daftarMitra} rowsPerPage={5}/>
                      }/>
     )
 }

@@ -41,6 +41,10 @@ export interface SearchFilter {
     region_id: string,
 }
 
+export interface SearchFilterDaftarMitra {
+    keyword: string,
+}
+
 export interface DataInformasiTransaksiInterface {
     id: number,
     nama_perusahaan: string,

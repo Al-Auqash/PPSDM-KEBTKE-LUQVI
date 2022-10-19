@@ -25,6 +25,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/daftar-mitra', [SuratKerjaSamaController::class, 'index']);
 Route::get('/tipe-surat', [SuratKerjaSamaController::class, 'tipeSurat']);
 Route::get('/tipe-surat-by-id', [SuratKerjaSamaController::class, 'tipeSuratById']);
+Route::get('/informasi-transaksi', [SuratKerjaSamaController::class, 'index']);
 
 
 Route::prefix('surat-kerja-sama')->group(function () {

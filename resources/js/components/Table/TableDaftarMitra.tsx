@@ -4,7 +4,7 @@ import useTable from "./../hooks/useTable";
 import styles from "./Table.module.css";
 import TableFooter from "./TableFooter";
 
-const Table = ({data, rowsPerPage}) => {
+const Table = ({data, rowsPerPage, handleChange}) => {
     const [page, setPage] = useState(1);
     const {slice, range} = useTable(data, page, rowsPerPage);
     return (
@@ -46,8 +46,7 @@ const Table = ({data, rowsPerPage}) => {
                                         <label className="control-label col-3 fs-5">Keyword</label>
                                         <label className="control-label col-auto">:</label>
                                         <div className="col-8">
-                                            <input type="email" className="form-control" id="exampleInputEmail1"
-                                                   aria-describedby="emailHelp"/>
+                                            <input type="text" onChange={handleChange} className="form-control" name="keyword" />
                                         </div>
                                     </div>
                                 </div>
