@@ -10,6 +10,7 @@ const daftarMitra = () => {
     const [search, setSearch] = useState<SearchFilterDaftarMitra>();
 
     const getDaftarMitra = async () => {
+
         await axios
             // .get("/api/surat-kerja-sama")
             .get("/api/daftar-mitra")
@@ -22,7 +23,7 @@ const daftarMitra = () => {
             });
     };
 
-    const getSearch = async (e: React.FormEvent<HTMLFormElement>) => {
+    const searchByFilter = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
         const params = {
@@ -32,14 +33,14 @@ const daftarMitra = () => {
         await axios
             .get("/api/daftar-mitra", {params})
             .then((response) => {
-                setDaftarMitra(response.data);
+                setDaftarMitra(response.data.data);
             })
             .catch((error) => {
                 console.log(error);
             });
     };
 
-    const handleChange = (e: React.FormEvent<HTMLInputElement>) => {
+    const handleChangeFilter = (e: React.FormEvent<HTMLInputElement>) => {
         setSearch((inputField) => ({
             ...inputField,
             // @ts-ignore
@@ -55,7 +56,8 @@ const daftarMitra = () => {
 
     return (
         <CardContent title="DAFTAR MITRA"
-                     content={<Table handleChange={handleChange} data={daftarMitra} rowsPerPage={5}/>
+                     content={<Table searchByFilter={searchByFilter} handleChangeFilter={handleChangeFilter}
+                                     data={daftarMitra} rowsPerPage={5}/>
                      }/>
     )
 }

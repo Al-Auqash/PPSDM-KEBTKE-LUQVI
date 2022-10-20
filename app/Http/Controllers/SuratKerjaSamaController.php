@@ -15,6 +15,19 @@ class SuratKerjaSamaController extends Controller
         return $surat_kerja_sama->toJson();
     }
 
+    public function getSuratKerjaSamaByFilter(Request $request)
+    {
+        $keyword = $request->keyword;
+
+        if (!$keyword) {
+            $keyword = "";
+        }
+
+        $surat_kerja_sama = SuratKerjaSama::where('nama_mitra', 'LIKE', '%' . $keyword . '%')->paginate();
+
+        return $surat_kerja_sama->toJson();
+    }
+
     public function tipeSurat()
     {
         $tipe_surat = TipeSurat::select('*')->paginate(10);

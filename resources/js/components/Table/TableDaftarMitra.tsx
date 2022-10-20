@@ -4,7 +4,7 @@ import useTable from "./../hooks/useTable";
 import styles from "./Table.module.css";
 import TableFooter from "./TableFooter";
 
-const Table = ({data, rowsPerPage, handleChange}) => {
+const Table = ({data, rowsPerPage, handleChangeFilter, searchByFilter}) => {
     const [page, setPage] = useState(1);
     const {slice, range} = useTable(data, page, rowsPerPage);
     return (
@@ -38,25 +38,26 @@ const Table = ({data, rowsPerPage, handleChange}) => {
                                 </span>
                             </button>
                         </div>
-                        <div className="modal-body">
-                            <form>
+                        <form onSubmit={searchByFilter}>
+                            <div className="modal-body">
 
                                 <div className="form-group py-2">
                                     <div className="row">
                                         <label className="control-label col-3 fs-5">Keyword</label>
                                         <label className="control-label col-auto">:</label>
                                         <div className="col-8">
-                                            <input type="text" onChange={handleChange} className="form-control" name="keyword" />
+                                            <input type="text" onChange={handleChangeFilter} className="form-control"
+                                                   name="keyword"/>
                                         </div>
                                     </div>
                                 </div>
 
-                            </form>
-                        </div>
-                        <div className="modal-footer">
-                            {/*<button type="button" className="btn btn-secondary px-4 fw-bold" data-bs-dismiss="modal">BATAL</button>*/}
-                            <button type="button" className="btn btn-primary px-4 fw-bold">CARI</button>
-                        </div>
+                            </div>
+                            <div className="modal-footer">
+                                {/*<button type="button" className="btn btn-secondary px-4 fw-bold" data-bs-dismiss="modal">BATAL</button>*/}
+                                <button type="submit" className="btn btn-primary px-4 fw-bold">CARI</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -95,7 +96,7 @@ const Table = ({data, rowsPerPage, handleChange}) => {
                     </tr>
                 ))) : (
                     <tr>
-                        <td className={"text-center py-4 " + styles.tableCell} colspan={6}>Data Not Found</td>
+                        <td className={"text-center py-4 " + styles.tableCell} colSpan={6}>Data Not Found</td>
                     </tr>
                 )}
                 </tbody>
