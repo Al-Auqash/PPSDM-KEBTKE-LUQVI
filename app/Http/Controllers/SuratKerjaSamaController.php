@@ -28,6 +28,12 @@ class SuratKerjaSamaController extends Controller
         return $surat_kerja_sama->toJson();
     }
 
+    public function getPenerimaanTotalInformasiTransaksi()
+    {
+        $penerimaan_total = DB::raw('SELECT
+        (EXTRACT(year FROM tanggal_dimulai) AS year, SUM(money) AS money_earned)');
+    }
+
     public function tipeSurat()
     {
         $tipe_surat = TipeSurat::select('*')->paginate(10);
@@ -108,12 +114,19 @@ class SuratKerjaSamaController extends Controller
 
     public function editSuratKerjaSama(Request $request, SuratKerjaSama $surat_kerja_sama)
     {
+        $id = $request->id;
         $data = $request->all();
 
-        if ($surat_kerja_sama->update($data)) {
+        if ($surat_kerja_sama->where('id', $id)->update($data)) {
             return response()->json([
                 'success' => true,
             ]);
+        } else {
+            return response()->json([
+                'failed' => true,
+                $data,
+            ]);
+
         }
     }
 

@@ -21,13 +21,6 @@ export interface SuratKerjaSama {
     rekening_mitra: number,
 }
 
-export interface SuratKerjaSama {
-    id: number,
-    nomor_surat: string,
-    nama_mitra: string,
-    judul_ks: string,
-}
-
 export interface DaftarMitraInterface {
     id: number,
     nama_mitra: string,

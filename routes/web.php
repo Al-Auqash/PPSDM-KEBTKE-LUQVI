@@ -30,8 +30,14 @@ Route::prefix('daftar-mitra')->group(function () {
     });
 });
 
-Route::get('/informasi-transaksi', function () {
-    return view('welcome');
+Route::prefix('informasi-transaksi')->group(function () {
+    Route::get('', function () {
+        return view('welcome');
+    });
+
+    Route::get('/penerimaan-total', function () {
+        return view('welcome');
+    });
 });
 
 Route::prefix('surat-kerja-sama')->group(function () {

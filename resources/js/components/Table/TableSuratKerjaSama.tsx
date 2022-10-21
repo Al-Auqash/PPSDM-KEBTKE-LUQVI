@@ -30,7 +30,7 @@ const Table = ({data, rowsPerPage}) => {
 
     return (
         <>
-            <button type="button" className="btn float-end rounded d-flex flex-row background-green"
+            <button type="button" className="btn float-end rounded d-flex flex-row background-grey"
                     data-bs-toggle="modal"
                     data-bs-target="#exampleModal">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"

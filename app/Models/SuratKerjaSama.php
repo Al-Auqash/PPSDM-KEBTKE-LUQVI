@@ -12,7 +12,9 @@ class SuratKerjaSama extends Model
     protected $table = 'surat_kerja_sama';
 
     protected $fillable = [
+        'id',
         'id_tipe_surat',
+        'tipe_surat',
         'nomor_surat',
         'judul_ks',
         'yang_bertanda_tangan',
@@ -27,5 +29,7 @@ class SuratKerjaSama extends Model
         'alamat',
         'kontak',
         'rekening_mitra',
+        'updated_at',
+        'created_at',
     ];
 }

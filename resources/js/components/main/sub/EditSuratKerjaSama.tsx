@@ -21,36 +21,9 @@ const tambahSuratKerjaSama = () => {
         }));
     };
 
-    const getSuratKerjaSama = async () => {
-        await axios
-            .get('/api/surat-kerja-sama/', {
-                params: {id: params.id},
-            })
-            .then((response) => {
-                setSuratKerjaSama(response.data)
-            })
-            .catch((error) => {
-                console.log(error);
-                console.log("error")
-            });
-    }
-
-    const getTipeSurat = () => {
-        axios
-            .get('/api/tipe-surat')
-            .then((response) => {
-                setDataTipeSurat(response.data.data)
-            })
-            .catch((error) => {
-                console.log(error)
-            })
-    }
-
     const editSuratKerjaSama = () => {
         axios
-            .put('/api/surat-kerja-sama/', {
-                params: {id: params.id},
-            })
+            .put('/api/surat-kerja-sama/', inputSuratKerjaSama)
             .then((response) => {
                 console.log(response.data)
             })
@@ -58,6 +31,30 @@ const tambahSuratKerjaSama = () => {
                 console.log(error);
                 console.log("error")
             });
+    }
+
+    const getSuratKerjaSama = async () => {
+        await axios
+            .get('/api/surat-kerja-sama/', {
+                params: {id: params.id},
+            })
+            .then((response) => {
+                setSuratKerjaSama(response.data)
+                setInputSuratKerjaSama(response.data[0])
+            })
+            .catch((error) => {
+                console.log(error);
+                console.log("error")
+            });
+
+        await axios
+            .get('/api/tipe-surat')
+            .then((response) => {
+                setDataTipeSurat(response.data.data)
+            })
+            .catch((error) => {
+                console.log(error)
+            })
     }
 
     const getPreviousTipeSurat = () => {
@@ -72,13 +69,15 @@ const tambahSuratKerjaSama = () => {
 
     useEffect(() => {
         getSuratKerjaSama();
-        getTipeSurat();
     }, [])
+
+    console.log(inputSuratKerjaSama)
+    // console.log(dataSuratKerjaSama)
 
     return (
         <CardContent title="Edit Dokumen" content={
             dataSuratKerjaSama.map((data: any) => (
-                <form onSubmit={editSuratKerjaSama}>
+                <form onSubmit={editSuratKerjaSama} key={data.id}>
                     {message && (
                         <div className="alert alert-primary" role="alert">
                             Data Berhasil Ditambahkan!
@@ -130,7 +129,7 @@ const tambahSuratKerjaSama = () => {
                                         id="nomor_surat"
                                         autoComplete="false"
                                         onChange={handleChange}
-                                        value={data.nomor_surat}
+                                        defaultValue={data.nomor_surat}
                                     />
                                 </div>
                             </div>
@@ -147,7 +146,7 @@ const tambahSuratKerjaSama = () => {
                                         id="judul_ks"
                                         autoComplete="false"
                                         onChange={handleChange}
-                                        value={data.judul_ks}
+                                        defaultValue={data.judul_ks}
                                     />
                                 </div>
                             </div>
@@ -164,7 +163,7 @@ const tambahSuratKerjaSama = () => {
                                         id="yang_bertanda_tangan"
                                         autoComplete="false"
                                         onChange={handleChange}
-                                        value={data.yang_bertanda_tangan}
+                                        defaultValue={data.yang_bertanda_tangan}
                                     />
                                 </div>
                             </div>
@@ -181,7 +180,7 @@ const tambahSuratKerjaSama = () => {
                                         id="tanggal_dimulai"
                                         autoComplete="false"
                                         onChange={handleChange}
-                                        value={data.tanggal_dimulai}
+                                        defaultValue={data.tanggal_dimulai}
                                     />
                                 </div>
                             </div>
@@ -198,7 +197,7 @@ const tambahSuratKerjaSama = () => {
                                         id="tanggal_berakhir"
                                         autoComplete="false"
                                         onChange={handleChange}
-                                        value={data.tanggal_berakhir}
+                                        defaultValue={data.tanggal_berakhir}
                                     />
                                 </div>
                             </div>
@@ -215,7 +214,7 @@ const tambahSuratKerjaSama = () => {
                                         id="estimasi_penerimaan"
                                         autoComplete="false"
                                         onChange={handleChange}
-                                        value={data.estimasi_penerimaan}
+                                        defaultValue={data.estimasi_penerimaan}
                                     />
                                 </div>
                             </div>
@@ -232,7 +231,7 @@ const tambahSuratKerjaSama = () => {
                                         id="realisasi_penerimaan"
                                         autoComplete="false"
                                         onChange={handleChange}
-                                        value={data.realisasi_penerimaan}
+                                        defaultValue={data.realisasi_penerimaan}
                                     />
                                 </div>
                             </div>
@@ -249,7 +248,7 @@ const tambahSuratKerjaSama = () => {
                                         id="capaian"
                                         autoComplete="false"
                                         onChange={handleChange}
-                                        value={data.capaian}
+                                        defaultValue={data.capaian}
                                     />
                                 </div>
                             </div>
@@ -266,7 +265,7 @@ const tambahSuratKerjaSama = () => {
                                         id="catatan"
                                         autoComplete="false"
                                         onChange={handleChange}
-                                        value={data.catatan}
+                                        defaultValue={data.catatan}
                                     />
                                 </div>
                             </div>
@@ -287,7 +286,7 @@ const tambahSuratKerjaSama = () => {
                                         id="nama_mitra"
                                         autoComplete="false"
                                         onChange={handleChange}
-                                        value={data.nama_mitra}
+                                        defaultValue={data.nama_mitra}
                                     />
                                 </div>
                             </div>
@@ -304,7 +303,7 @@ const tambahSuratKerjaSama = () => {
                                         id="koordinator"
                                         autoComplete="false"
                                         onChange={handleChange}
-                                        value={data.koordinator}
+                                        defaultValue={data.koordinator}
                                     />
                                 </div>
                             </div>
@@ -321,7 +320,7 @@ const tambahSuratKerjaSama = () => {
                                         id="alamat"
                                         autoComplete="false"
                                         onChange={handleChange}
-                                        value={data.alamat}
+                                        defaultValue={data.alamat}
                                     />
                                 </div>
                             </div>
@@ -338,7 +337,7 @@ const tambahSuratKerjaSama = () => {
                                         id="kontak"
                                         autoComplete="false"
                                         onChange={handleChange}
-                                        value={data.kontak}
+                                        defaultValue={data.kontak}
                                     />
                                 </div>
                             </div>
@@ -355,7 +354,7 @@ const tambahSuratKerjaSama = () => {
                                         id="rekening_mitra"
                                         autoComplete="false"
                                         onChange={handleChange}
-                                        value={data.rekening_mitra}
+                                        defaultValue={data.rekening_mitra}
                                     />
                                 </div>
                             </div>
