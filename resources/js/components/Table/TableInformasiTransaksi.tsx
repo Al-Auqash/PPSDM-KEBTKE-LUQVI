@@ -81,7 +81,7 @@ const Table = ({data, rowsPerPage, handleChangeFilter, searchByFilter}) => {
                         {/*<td className={styles.tableCell}>{el.id}</td>*/}
                         <td className={styles.tableCell}>{el.nama_mitra}</td>
                         <td className={styles.tableCell}>{el.tanggal_dimulai}</td>
-                        <td className={styles.tableCell}>{el.tipe_surat}</td>
+                        <td className={styles.tableCell}>{el.jenis_layanan}</td>
                         <td className={styles.tableCell}>{el.estimasi_penerimaan}</td>
                     </tr>
                 ))) : (

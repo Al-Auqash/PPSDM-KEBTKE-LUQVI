@@ -1,7 +1,7 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import CardContent from "./CardContent";
 import axios from "axios";
-import {TipeSurat, SuratKerjaSama} from "../../interface/Interface";
+import { TipeSurat, SuratKerjaSama } from "../../interface/Interface";
 
 const tambahSuratKerjaSama = () => {
 
@@ -57,7 +57,7 @@ const tambahSuratKerjaSama = () => {
                 <div className="form-group mb-4">
                     <h4 className="fw-bold text-decoration-underline">Data Umum</h4>
                     <div className="form-group py-2">
-                        <div className="row">
+                        <div className="row  align-items-center">
                             <label className="control-label col-3 fs-5">Tipe Surat</label>
                             <label className="control-label col-auto">:</label>
                             <div className="col-8">
@@ -79,7 +79,46 @@ const tambahSuratKerjaSama = () => {
                         </div>
                     </div>
                     <div className="form-group py-2">
-                        <div className="row">
+                        <div className="row  align-items-center">
+                            <label className="control-label col-3 fs-5">Jenis Layanan</label>
+                            <label className="control-label col-auto">:</label>
+                            <div className="col-8">
+                                <select
+                                    className="form-select w-100"
+                                    name="jenis_layanan"
+                                    id="text"
+                                    autoComplete="false"
+                                    onChange={handleChange}
+                                >
+                                    <option hidden defaultValue={0}>Pilih Jenis Layanan</option>
+                                    <option value="sertifikasi">Sertifikasi</option>
+                                    <option value="diklat">Diklat</option>
+                                    <option value="audit_energi">Audit Energi</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="form-group py-2">
+                        <div className="row  align-items-center">
+                            <label className="control-label col-3 fs-5">Domain</label>
+                            <label className="control-label col-auto">:</label>
+                            <div className="col-8">
+                                <select
+                                    className="form-select w-100"
+                                    name="domain"
+                                    id="text"
+                                    autoComplete="false"
+                                    onChange={handleChange}
+                                >
+                                    <option hidden defaultValue={0}>Pilih Domain</option>
+                                    <option value="dalam_negeri">Dalam Negeri</option>
+                                    <option value="luar_negeri">Luar Negeri</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="form-group py-2">
+                        <div className="row  align-items-center">
                             <label className="control-label col-3 fs-5">Nomor Surat</label>
                             <label className="control-label col-auto">:</label>
                             <div className="col-8">
@@ -95,7 +134,7 @@ const tambahSuratKerjaSama = () => {
                         </div>
                     </div>
                     <div className="form-group py-2">
-                        <div className="row">
+                        <div className="row  align-items-center">
                             <label className="control-label col-3 fs-5">Judul KS</label>
                             <label className="control-label col-auto">:</label>
                             <div className="col-8">
@@ -111,14 +150,37 @@ const tambahSuratKerjaSama = () => {
                         </div>
                     </div>
                     <div className="form-group py-2">
-                        <div className="row">
+                        <div className="row  align-items-center">
                             <label className="control-label col-3 fs-5">Yang Bertanda Tangan</label>
                             <label className="control-label col-auto">:</label>
-                            <div className="col-8">
+                            <label className="control-label col-auto fs-5">1.</label>
+                            <div className="col-2 p-0">
                                 <input
                                     className="form-control w-100"
                                     type="text"
-                                    name="yang_bertanda_tangan"
+                                    name="yang_bertanda_tangan1"
+                                    id="yang_bertanda_tangan"
+                                    autoComplete="false"
+                                    onChange={handleChange}
+                                />
+                            </div>
+                            <label className="control-label col-auto">2.</label>
+                            <div className="col-2 p-0">
+                                <input
+                                    className="form-control w-100"
+                                    type="text"
+                                    name="yang_bertanda_tangan2"
+                                    id="yang_bertanda_tangan"
+                                    autoComplete="false"
+                                    onChange={handleChange}
+                                />
+                            </div>
+                            <label className="control-label col-auto">3.</label>
+                            <div className="col-2 p-0">
+                                <input
+                                    className="form-control w-100"
+                                    type="text"
+                                    name="yang_bertanda_tangan3"
                                     id="yang_bertanda_tangan"
                                     autoComplete="false"
                                     onChange={handleChange}
@@ -127,7 +189,7 @@ const tambahSuratKerjaSama = () => {
                         </div>
                     </div>
                     <div className="form-group py-2">
-                        <div className="row">
+                        <div className="row  align-items-center">
                             <label className="control-label col-3 fs-5">Tanggal Dimulai</label>
                             <label className="control-label col-auto">:</label>
                             <div className="col-8">
@@ -143,7 +205,7 @@ const tambahSuratKerjaSama = () => {
                         </div>
                     </div>
                     <div className="form-group py-2">
-                        <div className="row">
+                        <div className="row  align-items-center">
                             <label className="control-label col-3 fs-5">Tanggal Berakhir</label>
                             <label className="control-label col-auto">:</label>
                             <div className="col-8">
@@ -159,7 +221,7 @@ const tambahSuratKerjaSama = () => {
                         </div>
                     </div>
                     <div className="form-group py-2">
-                        <div className="row">
+                        <div className="row  align-items-center">
                             <label className="control-label col-3 fs-5">Estimasi Penerimaan</label>
                             <label className="control-label col-auto">:</label>
                             <div className="col-8">
@@ -175,7 +237,7 @@ const tambahSuratKerjaSama = () => {
                         </div>
                     </div>
                     <div className="form-group py-2">
-                        <div className="row">
+                        <div className="row  align-items-center">
                             <label className="control-label col-3 fs-5">Realisasi Penerimaan</label>
                             <label className="control-label col-auto">:</label>
                             <div className="col-8">
@@ -191,7 +253,7 @@ const tambahSuratKerjaSama = () => {
                         </div>
                     </div>
                     <div className="form-group py-2">
-                        <div className="row">
+                        <div className="row  align-items-center">
                             <label className="control-label col-3 fs-5">Capaian</label>
                             <label className="control-label col-auto">:</label>
                             <div className="col-8">
@@ -207,7 +269,7 @@ const tambahSuratKerjaSama = () => {
                         </div>
                     </div>
                     <div className="form-group py-2">
-                        <div className="row">
+                        <div className="row  align-items-center">
                             <label className="control-label col-3 fs-5">Catatan</label>
                             <label className="control-label col-auto">:</label>
                             <div className="col-8">
@@ -227,7 +289,7 @@ const tambahSuratKerjaSama = () => {
                 <div className="form-group mb-4">
                     <h4 className="fw-bold text-decoration-underline">Data Mitra</h4>
                     <div className="form-group py-2">
-                        <div className="row">
+                        <div className="row  align-items-center">
                             <label className="control-label col-3 fs-5">Nama Mitra</label>
                             <label className="control-label col-auto">:</label>
                             <div className="col-8">
@@ -243,7 +305,7 @@ const tambahSuratKerjaSama = () => {
                         </div>
                     </div>
                     <div className="form-group py-2">
-                        <div className="row">
+                        <div className="row  align-items-center">
                             <label className="control-label col-3 fs-5">Koordinator</label>
                             <label className="control-label col-auto">:</label>
                             <div className="col-8">
@@ -259,7 +321,7 @@ const tambahSuratKerjaSama = () => {
                         </div>
                     </div>
                     <div className="form-group py-2">
-                        <div className="row">
+                        <div className="row  align-items-center">
                             <label className="control-label col-3 fs-5">Alamat</label>
                             <label className="control-label col-auto">:</label>
                             <div className="col-8">
@@ -275,7 +337,7 @@ const tambahSuratKerjaSama = () => {
                         </div>
                     </div>
                     <div className="form-group py-2">
-                        <div className="row">
+                        <div className="row  align-items-center">
                             <label className="control-label col-3 fs-5">Kontak</label>
                             <label className="control-label col-auto">:</label>
                             <div className="col-8">
@@ -291,7 +353,7 @@ const tambahSuratKerjaSama = () => {
                         </div>
                     </div>
                     <div className="form-group py-2">
-                        <div className="row">
+                        <div className="row  align-items-center">
                             <label className="control-label col-3 fs-5">Rekening Mitra</label>
                             <label className="control-label col-auto">:</label>
                             <div className="col-8">
@@ -309,16 +371,16 @@ const tambahSuratKerjaSama = () => {
                 </div>
                 <button type="submit" className="btn btn-success px-4">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                         fill="currentColor"
-                         className="bi bi-plus-circle float-start my-1" viewBox="0 0 16 16">
+                        fill="currentColor"
+                        className="bi bi-plus-circle float-start my-1" viewBox="0 0 16 16">
                         <path
-                            d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                            d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
                         <path
-                            d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                            d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
                     </svg>
                     <span className="mx-2 fw-bold">SUBMIT</span>
                 </button>
-            </form>}/>
+            </form>} />
     )
 }
 

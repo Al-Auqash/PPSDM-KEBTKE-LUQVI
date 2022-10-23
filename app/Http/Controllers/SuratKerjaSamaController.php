@@ -25,7 +25,8 @@ class SuratKerjaSamaController extends Controller
             $keyword = "";
         }
 
-        $surat_kerja_sama = SuratKerjaSama::where('nama_mitra', 'LIKE', '%' . $keyword . '%')->paginate();
+        $surat_kerja_sama = SuratKerjaSama::where('nama_mitra', 'LIKE', '%' . $keyword . '%')
+            ->paginate();
 
         return $surat_kerja_sama->toJson();
     }
@@ -59,11 +60,23 @@ class SuratKerjaSamaController extends Controller
     {
         $id = $request->id;
         $keyword = $request->keyword;
+        $domain = $request->domain;
+        $year = $request->year;
 
-        $id = SuratKerjaSama::select('*')
-            ->where('id_tipe_surat', '=', $id)
-            ->where('nama_mitra', 'LIKE', '%' . $keyword . '%')
-            ->paginate();
+        if ($year) {
+            $id = SuratKerjaSama::select('*')
+                ->where('id_tipe_surat', '=', $id)
+                ->where('nama_mitra', 'LIKE', '%' . $keyword . '%')
+                ->where('domain', 'LIKE', '%' . $domain . '%')
+                ->whereYear('created_at', $year)
+                ->paginate();
+        } else {
+            $id = SuratKerjaSama::select('*')
+                ->where('id_tipe_surat', '=', $id)
+                ->where('nama_mitra', 'LIKE', '%' . $keyword . '%')
+                ->where('domain', 'LIKE', '%' . $domain . '%')
+                ->paginate();
+        }
 
         return $id->toJson();
     }
@@ -133,7 +146,6 @@ class SuratKerjaSamaController extends Controller
                 'failed' => true,
                 $data,
             ]);
-
         }
     }
 

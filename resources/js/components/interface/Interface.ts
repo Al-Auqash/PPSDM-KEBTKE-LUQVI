@@ -35,7 +35,9 @@ export interface SearchFilter {
 }
 
 export interface SearchFilterDaftarMitra {
-    keyword: string,
+    keyword?: string,
+    domain?: string,
+    year?: string,
 }
 
 export interface DataInformasiTransaksiInterface {

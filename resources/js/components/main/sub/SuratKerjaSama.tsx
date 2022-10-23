@@ -37,6 +37,8 @@ const suratKerjaSama = () => {
         const paramsFilter = {
             id: params.id,
             keyword: search?.keyword,
+            domain: search?.domain,
+            year: search?.year,
         };
 
         await axios
@@ -56,7 +58,7 @@ const suratKerjaSama = () => {
         setSearch((inputField) => ({
             ...inputField,
             // @ts-ignore
-            keyword: e.target.value,
+            [e.target.name]: e.target.value,
         }));
     };
 
@@ -64,7 +66,7 @@ const suratKerjaSama = () => {
         getAllSKS();
     }, [])
 
-    console.log(dataSKS)
+    console.log(search)
 
     return (
         <CardContent title={name}
