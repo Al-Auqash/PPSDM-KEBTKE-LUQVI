@@ -45,3 +45,9 @@ export interface DataInformasiTransaksiInterface {
     jenis_layanan: string,
     jumlah_penerimaan: string
 }
+
+export interface PenerimaanTotalInterface {
+    year: number,
+    estimasi_penerimaan: string,
+    realisasi_penerimaan: string,
+}

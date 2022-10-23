@@ -26,6 +26,7 @@ const tambahSuratKerjaSama = () => {
             .put('/api/surat-kerja-sama/', inputSuratKerjaSama)
             .then((response) => {
                 console.log(response.data)
+                window.location.href = '/surat-kerja-sama/' + params.nama + '/' + params.id;
             })
             .catch((error) => {
                 console.log(error);
@@ -36,7 +37,7 @@ const tambahSuratKerjaSama = () => {
     const getSuratKerjaSama = async () => {
         await axios
             .get('/api/surat-kerja-sama/', {
-                params: {id: params.id},
+                params: {id: params.idSurat},
             })
             .then((response) => {
                 setSuratKerjaSama(response.data)

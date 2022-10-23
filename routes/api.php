@@ -26,6 +26,7 @@ Route::get('/daftar-mitra', [SuratKerjaSamaController::class, 'getSuratKerjaSama
 Route::get('/tipe-surat', [SuratKerjaSamaController::class, 'tipeSurat']);
 Route::get('/tipe-surat-by-id', [SuratKerjaSamaController::class, 'tipeSuratById']);
 Route::get('/informasi-transaksi', [SuratKerjaSamaController::class, 'getSuratKerjaSamaByFilter']);
+Route::get('/informasi-transaksi/penerimaan-total', [SuratKerjaSamaController::class, 'getPenerimaanTotalInformasiTransaksi']);
 
 
 Route::prefix('surat-kerja-sama')->group(function () {

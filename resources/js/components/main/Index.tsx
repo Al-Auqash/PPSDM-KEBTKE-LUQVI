@@ -25,8 +25,8 @@ const index = () => {
                 <Route path="" element={<Home/>}/>
                 <Route path="surat-kerja-sama/:nama/:id" element={<SuratKerjaSama/>}/>
                 <Route path="surat-kerja-sama/tambah" element={<TambahSuratKerjaSama/>}/>
-                <Route path="surat-kerja-sama/:nama/:id/edit/:id" element={<EditSuratKerjaSama/>}/>
-                <Route path="surat-kerja-sama/:nama/:id/detail/:id" element={<DetailSuratKerjaSama/>}/>
+                <Route path="surat-kerja-sama/:nama/:id/edit/:idSurat" element={<EditSuratKerjaSama/>}/>
+                <Route path="surat-kerja-sama/:nama/:id/detail/:idSurat" element={<DetailSuratKerjaSama/>}/>
                 <Route path="daftar-mitra" element={<DaftarMitra/>}/>
                 <Route path="daftar-mitra/detail/:id" element={<DetailDaftarMitra/>}/>
                 <Route path="informasi-transaksi" element={<InformasiTransaksi/>}/>

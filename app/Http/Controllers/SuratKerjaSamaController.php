@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\SuratKerjaSama;
 use App\Models\TipeSurat;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Carbon;
 
 class SuratKerjaSamaController extends Controller
 {
@@ -30,8 +32,11 @@ class SuratKerjaSamaController extends Controller
 
     public function getPenerimaanTotalInformasiTransaksi()
     {
-        $penerimaan_total = DB::raw('SELECT
-        (EXTRACT(year FROM tanggal_dimulai) AS year, SUM(money) AS money_earned)');
+        $penerimaan_total = DB::table('surat_kerja_sama')->selectRaw('year(tanggal_dimulai) AS year, SUM(estimasi_penerimaan) AS estimasi_penerimaan, SUM(realisasi_penerimaan) AS realisasi_penerimaan')
+            ->groupByRaw('year(tanggal_dimulai)')
+            ->get();
+
+        return $penerimaan_total->toJson();
     }
 
     public function tipeSurat()
