@@ -5,7 +5,7 @@ import styles from "./Table.module.css";
 import TableFooter from "./TableFooter";
 import axios from "axios";
 
-const Table = ({data, rowsPerPage}) => {
+const Table = ({data, rowsPerPage, handleChangeFilter, searchByFilter}) => {
 
     const [modalId, setModalId] = useState(null)
     const [page, setPage] = useState(1);
@@ -59,63 +59,26 @@ const Table = ({data, rowsPerPage}) => {
                                 </span>
                             </button>
                         </div>
-                        <div className="modal-body">
-                            <form>
+                        <form onSubmit={searchByFilter}>
+                            <div className="modal-body">
 
                                 <div className="form-group py-2">
                                     <div className="row">
                                         <label className="control-label col-3 fs-5">Keyword</label>
                                         <label className="control-label col-auto">:</label>
                                         <div className="col-8">
-                                            <input type="email" className="form-control" id="exampleInputEmail1"
-                                                   aria-describedby="emailHelp"/>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="form-group py-2">
-                                    <div className="row">
-                                        <label className="control-label col-3 fs-5">Domain</label>
-                                        <label className="control-label col-auto">:</label>
-                                        <div className="col-8">
-                                            <div className="form-check">
-                                                <input className="form-check-input" type="radio" name="exampleRadios"
-                                                       id="exampleRadios1" value="option1" checked/>
-                                                <label className="form-check-label fs-5" htmlFor="exampleRadios1">
-                                                    Dalam Negeri
-                                                </label>
-                                            </div>
-                                            <div className="form-check">
-                                                <input className="form-check-input" type="radio" name="exampleRadios"
-                                                       id="exampleRadios2" value="option2"/>
-                                                <label className="form-check-label fs-5" htmlFor="exampleRadios2">
-                                                    Luar Negeri
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="form-group py-2">
-                                    <div className="row">
-                                        <label className="control-label col-3 fs-5">Tahun</label>
-                                        <label className="control-label col-auto">:</label>
-                                        <div className="col-8">
-                                            <input
-                                                className="form-control w-100"
-                                                type="date"
-                                                name="tanggal_dimulai"
-                                                id="tanggal_dimulai"
-                                                autoComplete="false"
-                                            />
+                                            <input type="text" onChange={handleChangeFilter} className="form-control"
+                                                   name="keyword"/>
                                         </div>
                                     </div>
                                 </div>
 
-                            </form>
-                        </div>
-                        <div className="modal-footer">
-                            {/*<button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Batal</button>*/}
-                            <button type="button" className="btn btn-primary px-4 fw-bold">CARI</button>
-                        </div>
+                            </div>
+                            <div className="modal-footer">
+                                {/*<button type="button" className="btn btn-secondary px-4 fw-bold" data-bs-dismiss="modal">BATAL</button>*/}
+                                <button type="submit" className="btn btn-primary px-4 fw-bold">CARI</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>

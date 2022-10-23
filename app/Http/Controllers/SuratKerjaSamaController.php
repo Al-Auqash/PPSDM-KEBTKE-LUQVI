@@ -58,10 +58,12 @@ class SuratKerjaSamaController extends Controller
     public function getSuratKerjaSamaByTipeSurat(Request $request)
     {
         $id = $request->id;
+        $keyword = $request->keyword;
 
         $id = SuratKerjaSama::select('*')
             ->where('id_tipe_surat', '=', $id)
-            ->get();
+            ->where('nama_mitra', 'LIKE', '%' . $keyword . '%')
+            ->paginate();
 
         return $id->toJson();
     }
