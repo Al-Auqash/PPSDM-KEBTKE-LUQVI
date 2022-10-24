@@ -64,32 +64,32 @@ class SuratKerjaSamaController extends Controller
         $year = $request->year;
 
         if ($year) {
-            $id = SuratKerjaSama::select('*')
+            $surat_kerja_sama = SuratKerjaSama::select('*')
                 ->where('id_tipe_surat', '=', $id)
                 ->where('nama_mitra', 'LIKE', '%' . $keyword . '%')
                 ->where('domain', 'LIKE', '%' . $domain . '%')
                 ->whereYear('created_at', $year)
                 ->paginate();
         } else {
-            $id = SuratKerjaSama::select('*')
+            $surat_kerja_sama = SuratKerjaSama::select('*')
                 ->where('id_tipe_surat', '=', $id)
                 ->where('nama_mitra', 'LIKE', '%' . $keyword . '%')
                 ->where('domain', 'LIKE', '%' . $domain . '%')
                 ->paginate();
         }
 
-        return $id->toJson();
+        return $surat_kerja_sama->toJson();
     }
 
     public function getSuratKerjaSamaById(Request $request)
     {
         $id = $request->id;
 
-        $id = SuratKerjaSama::select('*')
+        $surat_kerja_sama = SuratKerjaSama::select('*')
             ->where('id', '=', $id)
             ->get();
 
-        return $id->toJson();
+        return $surat_kerja_sama->toJson();
     }
 
     public function getDaftarMitra(Request $request)
